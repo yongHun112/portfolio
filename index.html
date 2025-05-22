@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOON SPACE</title>
+    <link rel="stylesheet" href="css/main.scss">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+
+    <script>
+        window.onload = function () {
+            /* 🛑🛑🛑🛑🛑마우스 커서 따라다니는 우주선🛑🛑🛑🛑🛑 */
+            const spaceShip = document.querySelector('.spaceship');
+            document.addEventListener('mousemove', (e) => {
+
+                gsap.to(spaceShip, {
+                    x: e.clientX - 50, /* 중심 위치 보정 */
+                    y: e.clientY - 50,
+                    duration: 3,
+                    ease: "power3.out"
+                });
+            });
+
+            /* 🛑🛑🛑🛑🛑smooth scroll🛑🛑🛑🛑🛑 */
+            const lenis = new Lenis({
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            gsap.ticker.add(() => {
+                ScrollTrigger.update();
+            });
+
+
+            /* 🛑🛑🛑🛑🛑header 스크롤 이벤트🛑🛑🛑🛑🛑 */
+            /* window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const header = document.querySelector('.header');
+
+                if(scrollY > 0) {
+                    header.classList.add('active');
+                } else {
+                    header.classList.remove('acitve');
+                }
+            }); */
+            
+                gsap.set('.main_visual .title', {
+                    z: -2500,
+                    opacity: 0
+                });
+                gsap.to('.main_visual .title', {
+                    z: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.5,
+                    ease: 'none',
+                });
+            
+
+        }   /* script end */
+    </script>
+</head>
+
+<body>
+    <div class="spaceship"><img src="img/3d-rendering-universe-icon.png" alt="3D UFO이미지"></div>
+    <div class="video_background">
+        <video src="img/0_Earth_Night_1920x1080.mp4" autoplay muted loop></video>
+        <div class="filter"></div> <!-- 배경 opacity 조절 -->
+    </div> <!-- video_background end-->
+
+    <div class="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo"><a href="#"><span>@</span>.HOON</a></h1>
+                <p class="portfolio_text">2025 Portfolio</p>
+            </div> <!-- inner end -->
+        </header> <!-- heder end -->
+
+
+        <div class="main">
+            <section class="main_visual">
+                <nav class="nav">
+                    <ul class="gnb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Skills</a></li>
+                        <li><a href="#">Project</a></li>
+                        <li><a href="#">Play</a></li>
+                    </ul> <!-- gnb end -->
+                </nav> <!-- nav end -->
+                <div class="title_box">
+                    <h2 class="title">Welcome to my<br /><span>HOON SPACE</span></h2>
+                </div> <!-- title_box end -->
+            </section> <!-- main_visual end -->
+
+
+        </div> <!-- main end -->
+    </div> <!-- wrap end -->.
+</body>
+
+</html>
