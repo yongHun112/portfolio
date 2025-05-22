@@ -24,7 +24,10 @@
                     duration: 3,
                     ease: "power3.out"
                 });
+
+
             });
+
 
             /* 🛑🛑🛑🛑🛑smooth scroll🛑🛑🛑🛑🛑 */
             const lenis = new Lenis({
@@ -46,29 +49,66 @@
 
 
             /* 🛑🛑🛑🛑🛑header 스크롤 이벤트🛑🛑🛑🛑🛑 */
-            /* window.addEventListener('scroll', () => {
+            window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
-                const header = document.querySelector('.header');
-
-                if(scrollY > 0) {
-                    header.classList.add('active');
+                const nav = document.querySelector('.main_visual .nav');
+                console.log(scrollY);
+                if (scrollY > 720) {
+                    nav.classList.add('active');
                 } else {
-                    header.classList.remove('acitve');
+                    nav.classList.remove('active');
                 }
-            }); */
-            
-                gsap.set('.main_visual .title', {
-                    z: -2500,
-                    opacity: 0
-                });
-                gsap.to('.main_visual .title', {
-                    z: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.5,
-                    ease: 'none',
-                });
-            
+            });
+
+            /* 🛑🛑🛑🛑🛑main_visual title 애니메이션🛑🛑🛑🛑🛑 */
+            document.fonts.ready.then(() => {
+                const split = new SplitText(".title", { type: "chars" });
+            });
+
+            gsap.set('.main_visual .title', {
+                z: -1100,
+                opacity: 0
+            });
+            gsap.to('.main_visual .title', {
+                z: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'none',
+            });
+            gsap.to('.main_visual .title span', {
+                'background-size': '100% 100%',
+                scale: 1.1,
+                rotationX: 1.2,
+                duration: 2,
+                ease: 'sine.inOut',
+                repeat: -1, /* 무한 반복 */
+                yoyo: true  /* 원상태 복귀 */
+            })
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.set('.mind_section .text_mind', {
+                z: -1100,
+                opacity: 0
+            });
+
+            gsap.to('.mind_section .text_mind', {
+                scrollTrigger: {
+                    trigger:'.mind_section',
+                    start: 'top top',
+                    end:'top 50%',
+                    scrub: false,
+                    markers: true
+                },
+                z: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1.5,
+                ease: 'power3.out',
+            });
+
+
 
         }   /* script end */
     </script>
@@ -91,7 +131,7 @@
 
 
         <div class="main">
-            <section class="main_visual">
+            <section class="section main_visual">
                 <nav class="nav">
                     <ul class="gnb">
                         <li><a href="#">Home</a></li>
@@ -101,9 +141,21 @@
                     </ul> <!-- gnb end -->
                 </nav> <!-- nav end -->
                 <div class="title_box">
-                    <h2 class="title">Welcome to my<br /><span>HOON SPACE</span></h2>
+                    <h2 class="title">Welcome to<br /><span>HOON SPACE</span></h2>
                 </div> <!-- title_box end -->
             </section> <!-- main_visual end -->
+
+            <section class="section mind_section">
+                <div class="sticky_box">
+                    <p class="text_mind">
+                        <span data-ko="나는 항상">I always</span>
+                        <span data-ko="긍정적인 마음가짐과 함께">have the resolve</span>
+                        <span data-ko="맡은바에 최선을 다 하는">to approach my duties</span>
+                        <span data-ko="결심을 지니고 있습니다.">with a positive mindset</span>.
+                    </p> <!--text_mind end-->
+                </div>  <!-- sticky_box end -->
+            </section> <!-- mind_section end -->
+
 
 
         </div> <!-- main end -->
