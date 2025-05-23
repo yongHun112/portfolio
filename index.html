@@ -53,7 +53,7 @@
                 const scrollY = window.scrollY;
                 const nav = document.querySelector('.main_visual .nav');
                 console.log(scrollY);
-                if (scrollY > 720) {
+                if (scrollY > 800) {
                     nav.classList.add('active');
                 } else {
                     nav.classList.remove('active');
@@ -85,29 +85,31 @@
                 repeat: -1, /* 무한 반복 */
                 yoyo: true  /* 원상태 복귀 */
             })
-
+    /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */          
             gsap.registerPlugin(ScrollTrigger);
 
-            gsap.set('.mind_section .text_mind', {
-                z: -1100,
-                opacity: 0
-            });
-
-            gsap.to('.mind_section .text_mind', {
-                scrollTrigger: {
-                    trigger:'.mind_section',
-                    start: 'top top',
-                    end:'top 50%',
-                    scrub: false,
-                    markers: true
+            gsap.fromTo('.mind_section .text_mind',
+                {
+                    z: -800,
+                    opacity: 0,
+                    scale: 0.8
                 },
-                z: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1.5,
-                ease: 'power3.out',
-            });
-
+                {
+                    scrollTrigger: {
+                        trigger: '.mind_section',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: false,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    z: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.0,
+                    ease: 'none',
+                }
+            );
 
 
         }   /* script end */
@@ -146,16 +148,26 @@
             </section> <!-- main_visual end -->
 
             <section class="section mind_section">
-                <div class="sticky_box">
-                    <p class="text_mind">
-                        <span data-ko="나는 항상">I always</span>
-                        <span data-ko="긍정적인 마음가짐과 함께">have the resolve</span>
-                        <span data-ko="맡은바에 최선을 다 하는">to approach my duties</span>
-                        <span data-ko="결심을 지니고 있습니다.">with a positive mindset</span>.
-                    </p> <!--text_mind end-->
-                </div>  <!-- sticky_box end -->
+                <div class="inner sticky_box">
+                    <h3 class="text_mind">
+                        <p><span class="text_en">I always</span>
+                            <span class="text_ko">저는 <b>항상</b></span></p>
+
+                        <p><span class="text_en">have the resolve</span>
+                            <span class="text_ko"><b>긍정적인 마음가짐</b>과 함께</span></p>
+
+                        <p><span class="text_en">to approach my duties<br/></span>
+                            <span class="text_ko">맡은바에 <b>최선을 다하는</b></span></p>
+
+                        <p><span class="text_en">with a positive mindset.</span>
+                            <span class="text_ko"><b>결심</b>을 지니고 있습니다.</span></p>
+                    </h3> <!--text_mind end-->
+                </div> <!-- sticky_box end -->
             </section> <!-- mind_section end -->
 
+            <section class="section skills">
+
+            </section>
 
 
         </div> <!-- main end -->

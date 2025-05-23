@@ -23,7 +23,11 @@ body {
 }
 
 body {
-    
+    .inner {
+        max-width: 160rem;
+        width: calc(100% - 60px);
+        margin: 0 auto;
+    }
 }
 
 
@@ -100,9 +104,7 @@ body {
     }
 
     .inner {
-        max-width: 160rem;
-        width: calc(100% - 60px);
-        margin: 0 auto;
+
         height: 100%;
         display: flex;
         align-items: center;
@@ -148,6 +150,7 @@ body {
             position: absolute;
             left: 50%;
             bottom: 4rem;
+            height: 4rem;
             transform: translateX(-50%);
             color: #fff;
 
@@ -221,34 +224,76 @@ body {
 
     .mind_section {
         width: 100%;
-        height: 3000px;
+        height: 300rem;
         position: relative;
-        
+
         .sticky_box {
-            position: absolute;
             height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
             display: flex;
             align-items: flex-start;
-            perspective: 100px;
+            justify-content: flex-start;
+            perspective: 800px;
         }
 
         .text_mind {
-            font-size: 6.4rem;
+            font-size: 11rem;
             font-weight: 700;
             color: #fff;
             transform-style: preserve-3d;
-            transform: translateZ(-1100px);
-            transition: 1.5s;
+            transform: translateZ(-800px);
+            transition: 1s;
             opacity: 0;
             position: sticky;
-            top: 10rem;
+            top: 20rem;
+            margin-top: 40rem;
+            line-height: 1.3;
+
+            p {
+                display: block;
+                position: relative;
+                height: 11rem;
+                line-height: 1;
+                overflow: hidden;
+                margin-bottom: 2rem;
+             
+                &:hover {
+                    .text_en {
+                        opacity: 0;
+                        transform:translateY(-100%);
+                    }
+
+                    .text_ko {
+                        transform: translateY(-100%);
+                        opacity: 1;
+                    }
+                }
+
+                span {
+                    display: block;
+                    transition: 0.3s;
+                    color: #fff;
+                }
+
+                .text_en {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                .text_ko {
+                    transform: translateY(0);
+                    opacity: 0;
 
 
-
+                    b {
+                        color:#00E0FF;
+                    }
+                }
+            }
         }
+    }
+
+    .skills {
+        height: 3000px;
     }
 
 
