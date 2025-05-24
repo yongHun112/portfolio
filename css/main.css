@@ -232,7 +232,106 @@ body .inner {
   color: #00E0FF;
 }
 .main .skills {
-  height: 3000px;
+  /*  height: 3000px; */
+  margin: 15rem 0;
+}
+.main .skills .inner {
+  position: relative;
+  height: 100vh;
+  perspective: 800px;
+}
+.main .skills .inner .title_skills {
+  font-family: "Heavitas";
+  font-size: clamp(6rem, 7vw + 1rem, 16rem);
+  color: rgba(193, 252, 245, 0.2509803922);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+}
+.main .skills .inner .skills_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .skills .inner .skills_wrap .skills_image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img {
+  width: 15rem;
+  position: absolute;
+  transition: 0.3s;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img.active {
+  transform: rotate(20deg);
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(1) {
+  top: 25%;
+  left: 20%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(2) {
+  top: 15%;
+  left: 45%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(3) {
+  top: 25%;
+  right: 20%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(4) {
+  top: 65%;
+  left: 20%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(5) {
+  top: 70%;
+  left: 45%;
+}
+.main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(6) {
+  top: 65%;
+  right: 20%;
+}
+.main .skills .inner .skills_wrap .skills_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.main .skills .inner .skills_wrap .skills_text .text_wrap {
+  position: relative;
+  width: 100%;
+}
+.main .skills .inner .skills_wrap .skills_text .text_wrap .text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #fff;
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s;
+}
+.main .skills .inner .skills_wrap .skills_text .text_wrap .text.active {
+  opacity: 1;
+}
+.main .project {
+  height: 200rem;
 }
 
 /* main end *//*# sourceMappingURL=main.css.map */

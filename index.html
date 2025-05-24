@@ -85,7 +85,7 @@
                 repeat: -1, /* 무한 반복 */
                 yoyo: true  /* 원상태 복귀 */
             })
-    /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */          
+            /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.fromTo('.mind_section .text_mind',
@@ -97,7 +97,7 @@
                 {
                     scrollTrigger: {
                         trigger: '.mind_section',
-                        start: 'top top',
+                        start: 'top 10%',
                         end: 'bottom top',
                         scrub: false,
                         toggleActions: 'play reverse play reverse',
@@ -110,6 +110,68 @@
                     ease: 'none',
                 }
             );
+            /* 🛑🛑🛑🛑🛑skills_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
+            gsap.set('.skills .title_skills', {
+                opacity: 0,
+                z: -800,
+                scale: 0.8
+            });
+
+            gsap.to('.skills .title_skills', {
+                scrollTrigger: {
+                    trigger: '.skills',
+                    start: 'top 20%',
+                    end: '70% center',
+                    scrub: false,
+                    toggleActions: 'play reverse play reverse',
+                    // markers: true
+                },
+                z: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'none'
+            });
+
+            // 두 번째 요소 초기 상태
+            gsap.set('.skills .skills_wrap', {
+                opacity: 0,
+                z: -800,
+                scale: 0.8
+            });
+
+            gsap.to('.skills .skills_wrap', {
+                scrollTrigger: {
+                    trigger: '.skills',
+                    start: 'top 20%',
+                    end: '70% center',
+                    scrub: false,
+                    toggleActions: 'play reverse play reverse',
+                    markers: true
+                },
+                z: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: 'none'
+            });
+
+
+            skillImage = document.querySelectorAll('.skills .skills_wrap .skills_image img');
+            skillText = document.querySelectorAll('.skills .skills_wrap .skills_text .text');
+
+            skillImage.forEach((img, index) => {
+                img.addEventListener('mouseenter', () => {
+                    img.classList.add('active');
+                    skillText[index].classList.add('active');
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.classList.remove('active');
+                    skillText[index].classList.remove('active');
+                });
+            });
+
 
 
         }   /* script end */
@@ -151,23 +213,57 @@
                 <div class="inner sticky_box">
                     <h3 class="text_mind">
                         <p><span class="text_en">I always</span>
-                            <span class="text_ko">저는 <b>항상</b></span></p>
+                            <span class="text_ko">저는 <b>항상</b></span>
+                        </p>
 
                         <p><span class="text_en">have the resolve</span>
-                            <span class="text_ko"><b>긍정적인 마음가짐</b>과 함께</span></p>
+                            <span class="text_ko"><b>긍정적인 마음가짐</b>과 함께</span>
+                        </p>
 
-                        <p><span class="text_en">to approach my duties<br/></span>
-                            <span class="text_ko">맡은바에 <b>최선을 다하는</b></span></p>
+                        <p><span class="text_en">to approach my duties<br /></span>
+                            <span class="text_ko">맡은바에 <b>최선을 다하는</b></span>
+                        </p>
 
                         <p><span class="text_en">with a positive mindset.</span>
-                            <span class="text_ko"><b>결심</b>을 지니고 있습니다.</span></p>
+                            <span class="text_ko"><b>결심</b>을 지니고 있습니다.</span>
+                        </p>
                     </h3> <!--text_mind end-->
                 </div> <!-- sticky_box end -->
             </section> <!-- mind_section end -->
 
             <section class="section skills">
+                <div class="inner">
+                    <h2 class="title_skills">SKILLS</h2> <!-- skills -->
 
-            </section>
+                    <div class="skills_wrap">
+                        <div class="skills_image">
+                            <div class="image_wrap">
+                                <img src="img/HTML_image.png" alt="html이미지">
+                                <img src="img/SCSS_image.png" alt="scss이미지">
+                                <img src="img/FIGMA_image.png" alt="figma이미지">
+                                <img src="img/JS_image.png" alt="js이미지">
+                                <img src="img/CSS_image.png" alt="css이미지">
+                                <img src="img/JQUERY_image.png" alt="jquery이미지">
+                            </div> <!-- image_wrap end -->
+                        </div> <!-- skills_image end -->
+
+                        <div class="skills_text">
+                            <div class="text_wrap">
+                                <p class="text">전체적인 웹 구조를 이해하고 배웠으며 시멘틱 마크업을 사용하며 웹 표준성 및 접근성을 준수합니다.</p>
+                                <p class="text">css를 구조화 하여 가독성과 유지보수에 원활함이 있어 적극 사용 가능합니다.</p>
+                                <p class="text">웹사이트 와이어 프레임 구조 제작 및 프로토타입 구현 할 수 있습니다.</p>
+                                <p class="text">클릭과 hover 및 스크롤 이벤트 등 동적 기능과 라이브러리 활용 가능합니다.</p>
+                                <p class="text">클래스와 아이디를 적극 활용하며 여러 단위들을 사용하여 효율적인 반응형 디자인을 제작할 수 있습니다.</p>
+                                <p class="text">자바스크립트와 같이 기본적인 애니메이션 구현 및 이벤트 활용 가능합니다.</p>
+                            </div> <!-- text_wrap end -->
+                        </div> <!-- skills_text end -->
+                    </div> <!-- skills_wrap -->
+                </div> <!-- inner end -->
+            </section> <!-- section skills end -->
+
+            <section class="section project">
+
+            </section> <!-- section project end -->
 
 
         </div> <!-- main end -->

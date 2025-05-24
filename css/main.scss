@@ -255,11 +255,11 @@ body {
                 line-height: 1;
                 overflow: hidden;
                 margin-bottom: 2rem;
-             
+
                 &:hover {
                     .text_en {
                         opacity: 0;
-                        transform:translateY(-100%);
+                        transform: translateY(-100%);
                     }
 
                     .text_ko {
@@ -285,7 +285,7 @@ body {
 
 
                     b {
-                        color:#00E0FF;
+                        color: #00E0FF;
                     }
                 }
             }
@@ -293,9 +293,133 @@ body {
     }
 
     .skills {
-        height: 3000px;
+        /*  height: 3000px; */
+        margin: 15rem 0;
+
+        .inner {
+            position: relative;
+            height: 100vh;
+            perspective: 800px;
+
+
+
+            .title_skills {
+                font-family: 'Heavitas';
+                font-size: clamp(6rem, 7vw + 1rem, 16rem);
+                color: #C1FCF540;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                opacity: 0;
+
+            }
+
+            .skills_wrap {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+
+
+                .skills_image {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    .image_wrap {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+
+                        img {
+                            width: 15rem;
+                            position: absolute;
+                            transition: 0.3s;
+
+                            &.active {
+                                transform: rotate(20deg);
+                            }
+
+                            &:nth-child(1) {
+                                top: 25%;
+                                left: 20%;
+
+                            }
+
+                            &:nth-child(2) {
+                                top: 15%;
+                                left: 45%;
+                            }
+
+                            &:nth-child(3) {
+                                top: 25%;
+                                right: 20%;
+                            }
+
+                            &:nth-child(4) {
+                                top: 65%;
+                                left: 20%;
+                            }
+
+                            &:nth-child(5) {
+                                top: 70%;
+                                left: 45%;
+                            }
+
+                            &:nth-child(6) {
+                                top: 65%;
+                                right: 20%;
+                            }
+
+
+                        }
+                    }
+                }
+
+                .skills_text {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+
+                    .text_wrap {
+                        position: relative;
+                        width: 100%;
+                        .text {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2.4rem;
+                            font-weight: 500;
+                            color: #fff;
+                            position: absolute;
+                            opacity: 0;
+                            transition: 0.3s;
+
+                            &.active {
+                                opacity: 1;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
+    .project {
+        height: 200rem;
+    }
 
 }
 
