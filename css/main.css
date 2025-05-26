@@ -61,12 +61,18 @@ body .inner {
   z-index: -2;
   pointer-events: none;
   overflow: hidden;
+  transform: scale(1);
 }
 .video_background video {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
+}
+.video_background .filter {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 /* video_background end */
@@ -183,7 +189,7 @@ body .inner {
   height: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   perspective: 800px;
 }
 .main .mind_section .text_mind {
@@ -214,11 +220,12 @@ body .inner {
 .main .mind_section .text_mind p:hover .text_ko {
   transform: translateY(-100%);
   opacity: 1;
+  color: #fff;
 }
 .main .mind_section .text_mind p span {
   display: block;
   transition: 0.3s;
-  color: #fff;
+  color: #ddd;
 }
 .main .mind_section .text_mind p .text_en {
   transform: translateY(0);
@@ -230,6 +237,37 @@ body .inner {
 }
 .main .mind_section .text_mind p .text_ko b {
   color: #00E0FF;
+}
+.main .mind_section .image_mind {
+  position: sticky;
+  top: 20rem;
+  margin-top: 40rem;
+  width: 25%;
+  transition: 1s;
+  transform-style: preserve-3d;
+  transform: translateZ(-800px);
+  opacity: 0;
+}
+.main .mind_section .image_mind .image_wrap {
+  position: relative;
+}
+.main .mind_section .image_mind .image_wrap .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52rem;
+  opacity: 0;
+  transition: 0.3s;
+}
+.main .mind_section .image_mind .image_wrap .image.active {
+  opacity: 1;
+}
+.main .mind_section .image_mind .image_wrap .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .main .skills {
   margin: 15rem 0;
@@ -277,9 +315,11 @@ body .inner {
   width: 15rem;
   position: absolute;
   transition: 0.3s;
+  opacity: 0.7;
 }
 .main .skills .inner .skills_wrap .skills_image .image_wrap img.active {
   transform: rotate(20deg);
+  opacity: 1;
 }
 .main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(1) {
   top: 25%;
@@ -333,6 +373,7 @@ body .inner {
 }
 .main .project {
   height: 200rem;
+  background-color: #111;
 }
 
 /* main end *//*# sourceMappingURL=main.css.map */

@@ -48,6 +48,25 @@
             });
 
 
+            /* 🛑🛑🛑🛑🛑background video scroll시 scale효과🛑🛑🛑🛑🛑 */
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.fromTo(".video_background",
+                {
+                    scale: 1 // ✅ 시작값
+                },
+                {
+                    scale: 1.8, // ✅ 끝값
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "10% top",
+                        end: "bottom top",
+                        scrub: 1,
+                        markers: true
+                    }
+                }
+            );
             /* 🛑🛑🛑🛑🛑header 스크롤 이벤트🛑🛑🛑🛑🛑 */
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
@@ -110,6 +129,45 @@
                     ease: 'none',
                 }
             );
+
+            /* 🛑🛑🛑🛑🛑mind_section .image등장 애니메이션🛑🛑🛑🛑🛑 */
+            gsap.fromTo('.mind_section .image_mind',
+                {
+                    z: -800,
+                    opacity: 0,
+                    scale: 0.8
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.mind_section',
+                        start: 'top 10%',
+                        end: 'bottom top',
+                        scrub: false,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    z: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.0,
+                    ease: 'none',
+                }
+            );
+
+            /* 🛑🛑🛑🛑🛑mind_section 이미지등장 애니메이션🛑🛑🛑🛑🛑 */
+            mindText = document.querySelectorAll('.mind_section .sticky_box .text_mind p');
+            mindImage = document.querySelectorAll('.mind_section .sticky_box .image_mind .image');
+
+            mindText.forEach((p, index) => {
+                p.addEventListener('mouseenter', () => {
+                    mindImage.forEach(img => img.classList.remove('active'));
+                    mindImage[index].classList.add('active');
+                });
+
+            })
+
+
+
             /* 🛑🛑🛑🛑🛑skills_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
             gsap.set('.skills .title_skills', {
                 opacity: 0,
@@ -172,8 +230,6 @@
                 });
             });
 
-
-
         }   /* script end */
     </script>
 </head>
@@ -228,6 +284,25 @@
                             <span class="text_ko"><b>결심</b>을 지니고 있습니다.</span>
                         </p>
                     </h3> <!--text_mind end-->
+
+                    <div class="image_mind">
+                        <div class="image_wrap">
+
+                            <div class="image">
+                                <img src="img/lusong1.jpg" alt="">
+                            </div> <!-- image end -->
+
+                            <div class="image">
+                                <img src="img/lusong6.jpg" alt="">
+                            </div> <!-- image end -->
+
+                            <div class="image">
+                                <img src="img/lusong4.jpg" alt="">
+                            </div> <!-- image end -->
+
+
+                        </div> <!-- image_wrap end -->
+                    </div> <!-- image end -->
                 </div> <!-- sticky_box end -->
             </section> <!-- mind_section end -->
 
@@ -263,10 +338,10 @@
 
             <section class="section project">
                 <div class="inner">
-                    <h2 class="title_project">
-                         
-                    </h2>   <!-- title_project end -->
-                </div>  <!-- inner end -->
+                    <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
+
+                    div
+                </div> <!-- inner end -->
             </section> <!-- section project end -->
 
 
