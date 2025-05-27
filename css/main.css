@@ -69,11 +69,6 @@ body .inner {
      object-fit: cover;
   height: 100%;
 }
-.video_background .filter {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
 
 /* video_background end */
 .header {
@@ -372,8 +367,144 @@ body .inner {
   opacity: 1;
 }
 .main .project {
-  height: 200rem;
-  background-color: #111;
+  height: 300rem;
+  padding: 15rem 0;
+}
+.main .project .inner {
+  max-width: 160rem;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+}
+.main .project .inner .title_project {
+  font-family: "Heavitas";
+  font-size: clamp(6rem, 7vw + 1rem, 16rem);
+  color: rgba(193, 252, 245, 0.2509803922);
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 40%;
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+  /*                 opacity: 0; */
+}
+.main .project .inner .project_wrap {
+  width: 100%;
+  margin-top: 30rem;
+  position: sticky;
+}
+.main .project .inner .project_wrap .project_box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 3px solid rgba(0, 224, 255, 0.6);
+  margin-bottom: 10rem;
+  padding: 5rem;
+  border-radius: 2rem;
+  box-shadow: inset 0 0 50px 5px rgba(0, 225, 255, 0.8823529412);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  transform: rotateZ(20deg);
+}
+.main .project .inner .project_wrap .project_box:nth-child(3)::after {
+  content: "";
+  width: 30rem;
+  background: url("../img/Group 201.png") center center/cover no-repeat;
+}
+.main .project .inner .project_wrap .project_box .image {
+  width: 46%;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.main .project .inner .project_wrap .project_box .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .project .inner .project_wrap .project_box .text_box {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 46%;
+}
+.main .project .inner .project_wrap .project_box .text_box .title {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+}
+.main .project .inner .project_wrap .project_box .text_box .title h3 {
+  color: #f1f1f1;
+  font-size: 5.6rem;
+  font-weight: 700;
+}
+.main .project .inner .project_wrap .project_box .text_box .title p {
+  font-size: 2.4rem;
+  color: #ccc;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 2rem;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont .use_tool {
+  font-size: 2rem;
+  color: #999;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont .use_tool span {
+  margin-right: 2rem;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont div {
+  font-size: 1.8rem;
+  color: #999;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont .text {
+  font-size: 2rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: #f1f1f1;
+  word-break: keep-all;
+}
+.main .project .inner .project_wrap .project_box .text_box .cont .text p {
+  margin-top: 2rem;
+  color: #999;
+}
+.main .project .inner .project_wrap .project_box .text_box .button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7rem;
+  margin-top: 15rem;
+}
+.main .project .inner .project_wrap .project_box .text_box .button a {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.8rem;
+  gap: 1rem;
+  transition: 0.5s;
+}
+.main .project .inner .project_wrap .project_box .text_box .button a:hover {
+  color: #00E0FF;
+  transform: scale(1.1);
+}
+.main .project .inner .project_wrap .project_box .text_box .button a:nth-child(1) {
+  border: 2px solid rgba(255, 255, 255, 0.662745098);
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  border-bottom: 1px solid transparent;
+  font-size: 3.6rem;
+}
+.main .project .inner .project_wrap .project_box .text_box .button a:nth-child(1):hover {
+  color: #fff;
+  border: 2px solid #00E0FF;
+  box-shadow: inset 0 0 20px 10px rgba(0, 225, 255, 0.4039215686);
+}
+.main .clone {
+  height: 2000px;
 }
 
 /* main end *//*# sourceMappingURL=main.css.map */

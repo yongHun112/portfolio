@@ -53,20 +53,39 @@
 
             gsap.fromTo(".video_background",
                 {
-                    scale: 1 // ✅ 시작값
+                    scale: 1 //시작값
                 },
                 {
-                    scale: 1.8, // ✅ 끝값
+                    scale: 1.8,
                     ease: "none",
                     scrollTrigger: {
                         trigger: "body",
                         start: "10% top",
                         end: "bottom top",
                         scrub: 1,
-                        markers: true
+                        /* markers: true */
                     }
                 }
             );
+            /* 🛑🛑🛑🛑🛑background video scroll시 점점 어두워지는 효과🛑🛑🛑🛑🛑 */
+            gsap.fromTo(".video_background",
+                {
+                    filter: 'brightness(1)'
+                },
+                {
+                    filter: 'brightness(0.3)',
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "10% top",
+                        end: "bottom top",
+                        scrub: 1,
+                        /* markers: true */
+                    }
+                }
+            );
+
+
             /* 🛑🛑🛑🛑🛑header 스크롤 이벤트🛑🛑🛑🛑🛑 */
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
@@ -214,7 +233,7 @@
                 ease: 'none'
             });
 
-
+            /* 🛑🛑🛑🛑🛑skills_section .이미지 hover 시 텍스트 바뀜🛑🛑🛑🛑🛑 */
             skillImage = document.querySelectorAll('.skills .skills_wrap .skills_image img');
             skillText = document.querySelectorAll('.skills .skills_wrap .skills_text .text');
 
@@ -229,6 +248,35 @@
                     skillText[index].classList.remove('active');
                 });
             });
+
+            /* 🛑🛑🛑🛑🛑project섹션 .이미지 rotateZ🛑🛑🛑🛑🛑 */
+            gsap.fromTo('.project .inner .project_wrap .project_box',
+                {
+                    transform: 'rotateZ(20deg)',
+                    opacity: 0,
+                    z: -800,
+                    scale: 0.8
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.project .project_wrap',
+                        start: 'top 80%',
+                        end: 'bottom center',
+                        scrub: false,
+                        toggleActions: 'play reverse play reverse',
+                        /*  markers: true   */
+                    },
+                    transform: 'rotateZ(0)',
+                    z: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: 'none',
+                }
+            );
+
+
+
 
         }   /* script end */
     </script>
@@ -340,9 +388,126 @@
                 <div class="inner">
                     <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
 
-                    div
+                    <div class="project_wrap">
+
+                        <div class="project_box">
+
+                            <div class="image">
+                                <img src="img/mocup1.png" alt="테일러메이드 목업이미지"></a>
+                            </div> <!-- image end -->
+                            <div class="text_box">
+                                <div class="title">
+                                    <h3>TaylorMade</h3>
+                                    <p>메인페이지</p>
+                                </div> <!-- title end -->
+
+                                <div class="cont">
+
+                                    <p class="use_tool">
+                                        <span>#photoshop</span>
+                                        <span>#html5</span>
+                                        <span>#css3</span>
+                                        <span>#javascript</span>
+                                        <span>#swiper-js</span>
+                                        <span>#AOS</span>
+                                    </p> <!-- use_tool  end-->
+
+                                    <div class="text">골프웨어 및 장비 브랜드인 테일러메이드 홈페이지 리뉴얼입니다. 브랜드 색상에 맞춘
+                                        전체적인 분위기와 한층 더 고급스러움을 주고 동적인 디자인을 고려해 디자인과 제작을 하였습니다.
+
+                                        <p>디자인 / 퍼블리싱 / 기획 100%</p>
+                                    </div> <!-- text end -->
+                                </div> <!-- cont end -->
+                                <div class="button">
+                                    <a href="https://yonghun112.github.io/taylorMade/" target="_blank">website</a>
+                                    <a href="https://github.com/yongHun112/taylorMade" target="_blank">github</a>
+                                    <a href="https://yonghun112.github.io/taylorMade/process/이용훈_비주얼아이데이션구상.pdf" target="_blank">process</a>
+                                </div> <!-- button end -->
+                            </div> <!-- text_box end    -->
+                        </div> <!-- project_box end -->
+                        <div class="project_box">
+
+                            <div class="image">
+                                <img src="img/mokup2.png" alt="모나용평 목업이미지"></a>
+                            </div> <!-- image end -->
+                            <div class="text_box">
+                                <div class="title">
+                                    <h3>MONA YONGPYONG</h3>
+                                    <p>메인페이지</p>
+                                </div> <!-- title end -->
+
+                                <div class="cont">
+
+                                    <p class="use_tool">
+                                        <span>#figma</span>
+                                        <span>#html5</span>
+                                        <span>#css3</span>
+                                        <span>#javascript</span>
+                                        <span>#swiper-js</span>
+                                        <span>#AOS</span>
+                                    </p> <!-- use_tool  end-->
+
+                                    <div class="text">종합리조트 브랜드인 모나용평 홈페이지 리뉴얼입니다. 대표 이미지인 발왕산을
+                                        바탕으로 한 이미지들과 남녀노소 어렵지 않게 홈페이지를 이용할 수 있도록 전체적으로 크고 한눈에 알기 쉬운 디자인으로
+                                        제작하였습니다.
+
+                                        <p>디자인 / 퍼블리싱 / 기획 100%</p>
+                                    </div> <!-- text end -->
+                                </div> <!-- cont end -->
+                                <div class="button">
+                                    <a href="https://yonghun112.github.io/MONA-YONG-PYONG/" target="_blank">website</a>
+                                    <a href="https://github.com/yongHun112/MONA-YONG-PYONG" target="_blank">github</a>
+                                    <a href="https://yonghun112.github.io/MONA-YONG-PYONG/process/이용훈_사용자%20리서치.pdf" target="_blank">process</a>
+                                    <a href="https://www.figma.com/design/QZL6IaEWqy4e7qkkUOobx6/%EB%AA%A8%EB%82%98-%EC%9A%A9%ED%8F%89-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=226-138&p=f&t=xstJ7BXEgKB2agiQ-0" target="_blank">figma</a>
+                                </div> <!-- button end -->
+                            </div> <!-- text_box end    -->
+                        </div> <!-- project_box end -->
+                        <div class="project_box">   
+
+                            <div class="image">
+                                <img src="img/mokup3.png" alt="스콧해미쉬 목업이미지"></a>
+                            </div> <!-- image end -->
+                            <div class="text_box">
+                                <div class="title">
+                                    <h3>Scott Hamish</h3>
+                                    <p>메인페이지, 상품페이지</p>
+                                </div> <!-- title end -->
+
+                                <div class="cont">
+
+                                    <p class="use_tool">
+                                        <span>#figma</span>
+                                        <span>#html5</span>
+                                        <span>#scss</span>
+                                        <span>#javascript</span>
+                                        <span>#gsap</span>
+                                    </p> <!-- use_tool  end-->
+
+                                    <div class="text">
+                                        남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
+                                        생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
+                                        <p>디자인 / 퍼블리싱 / 기획 / 반응형 100%</p>
+                                    </div> <!-- text end -->
+                                </div> <!-- cont end -->
+                                <div class="button">
+                                    <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
+                                    <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
+                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf" target="_blank">process</a>
+                                    <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0" target="_blank">figma</a>
+                                </div> <!-- button end -->
+                            </div> <!-- text_box end    -->
+                        </div> <!-- project_box end -->
+
+                    </div> <!-- project_wrap end -->
                 </div> <!-- inner end -->
             </section> <!-- section project end -->
+
+            <section class="section clone">
+                <div class="inner">
+                    <h2 class="title_clone">CLONE</h2>
+
+                </div>  <!-- inner end -->
+            </section> <!-- clone end -->
 
 
         </div> <!-- main end -->
