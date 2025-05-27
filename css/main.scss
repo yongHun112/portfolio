@@ -497,18 +497,29 @@ body {
                     width: 100%;
                     border: 3px solid rgba(0, 224, 255, 0.6);
                     margin-bottom: 10rem;
-                    padding:  5rem ;
+                    padding: 5rem;
                     border-radius: 2rem;
                     box-shadow: inset 0 0 50px 5px #00e1ffe1;
                     backdrop-filter: blur(6px);
                     transform: rotateZ(20deg);
+                    position: relative;
 
                     &:nth-child(3) {
-                        &::after {
-                            content: '';
-                            width: 30rem;
-                            background: url('../img/Group 201.png') center center / cover no-repeat;
+
+                        .text_box {
+                            position: relative;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                right: 10%;
+                                bottom: 20%;
+                                width: 20%;
+                                height: 30%;
+                                background: url('../img/qr-code\(scott\ hamish\).png') center center / cover no-repeat;
+                            }
                         }
+
                     }
 
                     .image {
@@ -528,6 +539,8 @@ body {
                         display: flex;
                         flex-direction: column;
                         width: 46%;
+
+
 
                         .title {
                             display: flex;
@@ -581,7 +594,11 @@ body {
                                 p {
                                     margin-top: 2rem;
                                     color: #999;
-                                } 
+
+                                    span {
+                                        color: #ddd;
+                                    }
+                                }
                             }
 
 
@@ -632,7 +649,174 @@ body {
     }
 
     .clone {
-        height: 2000px;
+        height: 100rem;
+        padding: 15rem 0;
+
+        .inner {
+            max-width: 160rem;
+            width: calc((100% - 60px));
+            margin: 0 auto;
+
+            .title_clone {
+                font-family: 'Heavitas';
+                font-size: clamp(6rem, 7vw + 1rem, 16rem);
+                color: #C1FCF540;
+                position: sticky;
+                display: flex;
+                justify-content: center;
+                top: 40%;
+                /* transform: translate(-50%, -50%); */
+                z-index: -1;
+                /*                 opacity: 0; */
+            }
+
+            .clone_wrap {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                opacity: 0;
+                transform: translateY(-10%);
+                position: sticky;
+
+                .clone_box {
+                    width: 49.5%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    &.third {
+                        .text_box {
+                            order: 2;
+                        }
+
+                        .image_box {
+                            order: 1;
+                        }
+                    }
+
+                    &.fourth {
+                        .text_box {
+                            order: 2;
+                        }
+
+                        .image_box {
+                            order: 1;
+                        }
+                    }
+
+                    .text_box {
+                        border: 2px solid #fff;
+                        width: 49.5%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        color: #fff;
+                        padding: 3rem 2rem;
+                        background-color: transparent;
+                        backdrop-filter: blur(6px);
+
+                        &:hover {
+                            border: 2px solid #00e1ffbe;
+                            box-shadow: inset 0 0 120px 10px #00e1ff5d;
+                        }
+
+
+                        .text_title {
+                            display: flex;
+                            align-items: center;
+                            gap: 2rem;
+
+                            h2 {
+                                font-size: 3.6rem;
+                                font-weight: 700;
+                            }
+
+                            span {
+                                font-size: 1.8rem;
+                                color: #999;
+                            }
+                        }
+
+                        .text_cont {
+                            width: 100%;
+
+                            p {
+                                display: block;
+                                width: 100%;
+                                /* word-break: keep-all; */
+                                font-size: 1.8rem;
+                                color: #eee;
+                                line-height: 1.5;
+
+                                span {
+                                    color: #00e1ffd3;
+                                };
+                            }
+                        }
+
+                        .text_btn {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            
+
+                            a {
+                                display: block;
+                                font-size: 2.4rem;
+                                border-radius: 1.5rem;
+                                border: 2px solid #fff;
+                                padding: 1rem 1rem;
+                                border-bottom: transparent;
+                                transition: 0.5s;
+
+                                &:hover {
+                                    border: 2px solid #00E0FF;
+                                    box-shadow: inset 0 0 10px 5px #00e1ffa9;
+                                    transform: scale(1.1);
+
+                                }
+                            }
+
+                            .text_info {
+                                display: flex;
+                                gap: 0.5rem;
+
+                                li {
+                                    font-size: 1.8rem;
+                                    color: #999;
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    .image_box {
+                        width: 49.5%;
+                        padding: 2rem;
+                       /*  box-shadow: inset 0 0 10px #00E0FF; */
+                        opacity: 0;
+                        transition: 0.8s;
+
+                        &.active {
+                            opacity: 1;
+                        }
+
+                        /* opacity: 0; */
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .design {
+        height: 200rem;
     }
 
 }
