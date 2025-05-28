@@ -462,7 +462,7 @@ body {
     }
 
     .project {
-        height: 300rem;
+        height: 400rem;
         padding: 15rem 0;
 
         .inner {
@@ -750,7 +750,9 @@ body {
 
                                 span {
                                     color: #00e1ffd3;
-                                };
+                                }
+
+                                ;
                             }
                         }
 
@@ -758,7 +760,7 @@ body {
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
-                            
+
 
                             a {
                                 display: block;
@@ -794,7 +796,7 @@ body {
                     .image_box {
                         width: 49.5%;
                         padding: 2rem;
-                       /*  box-shadow: inset 0 0 10px #00E0FF; */
+                        /*  box-shadow: inset 0 0 10px #00E0FF; */
                         opacity: 0;
                         transition: 0.8s;
 
@@ -817,6 +819,26 @@ body {
 
     .design {
         height: 200rem;
+        padding: 15rem 0;
+
+        .inner {
+            max-width: 160rem;
+            width: calc(100% - 60px);
+            margin: 0 auto;
+
+            .title_design {
+                font-family: 'Heavitas';
+                font-size: clamp(6rem, 7vw + 1rem, 16rem);
+                color: #C1FCF540;
+                position: sticky;
+                display: flex;
+                justify-content: center;
+                top: 40%;
+                /* transform: translate(-50%, -50%); */
+                z-index: -1;
+                /*                 opacity: 0; */
+            }
+        }
     }
 
 }

@@ -367,7 +367,7 @@ body .inner {
   opacity: 1;
 }
 .main .project {
-  height: 300rem;
+  height: 400rem;
   padding: 15rem 0;
 }
 .main .project .inner {
@@ -650,6 +650,24 @@ body .inner {
 }
 .main .design {
   height: 200rem;
+  padding: 15rem 0;
+}
+.main .design .inner {
+  max-width: 160rem;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+}
+.main .design .inner .title_design {
+  font-family: "Heavitas";
+  font-size: clamp(6rem, 7vw + 1rem, 16rem);
+  color: rgba(193, 252, 245, 0.2509803922);
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 40%;
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+  /*                 opacity: 0; */
 }
 
 /* main end *//*# sourceMappingURL=main.css.map */
