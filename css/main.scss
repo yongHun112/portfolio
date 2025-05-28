@@ -817,8 +817,64 @@ body {
         }
     }
 
-    .design {
+    .about_me {
+        width: 100%;
         height: 200rem;
+        padding: 15rem 0;
+
+        .inner {
+            height: 100%;
+
+            .title_aboutme {
+                font-family: 'Heavitas';
+                font-size: clamp(6rem, 7vw + 1rem, 16rem);
+                color: #C1FCF520;
+                position: sticky;
+                display: flex;
+                justify-content: center;
+                top: 40%;
+                /* transform: translate(-50%, -50%); */
+                z-index: -1;
+            }
+
+            .aboutme_wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                position: sticky;
+                top: 40%;
+
+                .about_info {
+                    width: 100%;
+                    color: #fff;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .about {
+                        display: flex;
+                        justify-content: space-between;
+
+                        width: 40%;
+
+                        .image {
+                            width: 50%;
+                            object-fit: cover;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .design {
+        height: 100rem;
         padding: 15rem 0;
 
         .inner {

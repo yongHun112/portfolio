@@ -24,8 +24,6 @@
                     duration: 3,
                     ease: "power3.out"
                 });
-
-
             });
 
 
@@ -291,8 +289,8 @@
             })
 
 
-             /* 🛑🛑🛑🛑🛑clone섹션 scollTrigger 효과🛑🛑🛑🛑🛑 */
-             gsap.fromTo('.clone .inner .clone_wrap',
+            /* 🛑🛑🛑🛑🛑clone섹션 scollTrigger 효과🛑🛑🛑🛑🛑 */
+            gsap.fromTo('.clone .inner .clone_wrap',
                 {
                     transform: 'translateY(-10%)',
                     opacity: 0,
@@ -306,7 +304,7 @@
                         end: 'bottom center',
                         scrub: false,
                         toggleActions: 'play reverse play reverse',
-                         markers: true  
+                        /*  markers: true   */
                     },
                     transform: 'translateY(-10%)',
                     z: 0,
@@ -566,8 +564,10 @@
                                 </div> <!-- cont end -->
                                 <div class="button">
                                     <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">prototype</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"target="_blank">process</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"target="_blank">figma</a>
+                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"
+                                        target="_blank">process</a>
+                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"
+                                        target="_blank">figma</a>
                                 </div> <!-- button end -->
                             </div> <!-- text_box end    -->
                         </div> <!-- project_box end -->
@@ -621,7 +621,8 @@
                                 </div> <!-- text_cont end -->
 
                                 <div class="text_btn">
-                                    <a href="https://yonghun112.github.io/skelterlabs-clone/" target="_blank">website</a>
+                                    <a href="https://yonghun112.github.io/skelterlabs-clone/"
+                                        target="_blank">website</a>
 
                                     <ul class="text_info">
                                         <li>HTML,</li>
@@ -645,7 +646,7 @@
                                 </div> <!-- text_title end -->
 
                                 <div class="text_cont">
-                                    <p>교육 프로그램 로보토리에듀 홈페이지 클론코딩을 통해 <span>자바스크립트</span>의 여러 기능을 배웠습니다.  </p>
+                                    <p>교육 프로그램 로보토리에듀 홈페이지 클론코딩을 통해 <span>자바스크립트</span>의 여러 기능을 배웠습니다. </p>
                                 </div> <!-- text_cont end -->
 
                                 <div class="text_btn">
@@ -672,7 +673,8 @@
                                 </div> <!-- text_title end -->
 
                                 <div class="text_cont">
-                                    <p>예술과 AI가 만난 팔레트 홈페이지 클론코딩을 통해 <span>gsap</span>과 여러 <span>텍스트 효과</span>를 배웠습니다.</p>
+                                    <p>예술과 AI가 만난 팔레트 홈페이지 클론코딩을 통해 <span>gsap</span>과 여러 <span>텍스트 효과</span>를 배웠습니다.
+                                    </p>
                                 </div> <!-- text_cont end -->
 
                                 <div class="text_btn">
@@ -696,19 +698,71 @@
                 </div> <!-- inner end -->
             </section> <!-- clone end -->
 
-            <section class="section design">
-                <div class="inner">
-                    <h2 class="title_design">DESIGN</h2>   <!-- title_design end -->
-                </div>  <!-- inner end -->
-            </section>  <!-- design end -->
-
             <section class="section about_me">
                 <div class="inner">
-                    <h2 class="title_aboutme">
+                    <h2 class="title_aboutme">About me</h2> <!-- title_aboutme end   -->
 
-                    </h2>   <!-- title_aboutme end   -->
-                </div>  <!-- inner end -->
-            </section>  <!-- about_me end -->
+                    <div class="aboutme_wrap">
+                        <div class="about_info">
+                            <div class="about">
+                                <div class="image">
+                                    <img src="img/lusong1.jpg" alt="증명사진 이미지">
+                                </div> <!-- image end -->
+
+                                <div class="about_text">
+                                    <h3>ABOUT</h3>
+                                    <div class="tx name">
+                                        <span>NAME:</span>
+                                        <p>이용훈</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx birth">
+                                        <span>BIRTH:</span>
+                                        <p>2000. 01. 18</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx tel">
+                                        <span>TEL:</span>
+                                        <p>010 - 4653 - 7140</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx email">
+                                        <span>EMAIL:</span>
+                                        <p>dyd3536@naver.com</p>
+                                    </div> <!-- name end -->
+                                </div> <!--about_text end  -->
+                            </div> <!-- about end -->
+
+                            <div class="education">
+                                <h3>EDUCATION</h3>
+
+                                <div class="education_text">
+                                    <div class="tx first">
+                                        <p>그린컴퓨터아카데미 UI/UX 반응형 웹 디자인 & 퍼블리셔</p>
+                                        <span>2025.01 ~ 2025.06</span>
+                                    </div> <!-- tx first end -->
+                                    <div class="tx second">
+                                        <p>동명대학교 디지털 콘텐츠학과</p>
+                                        <span>졸업 2019.03 ~ 2025.02</span>
+                                    </div> <!-- tx first end -->
+                                    <div class="tx third">
+                                        <p>진주기계공업고등학교</p>
+                                        <span>졸업 2015.03 ~ 2018.02</span>
+                                    </div> <!-- tx first end -->
+                                </div> <!-- education_text end -->
+                            </div> <!-- deducation end -->
+                        </div> <!-- about_info end -->
+
+                        <div class="gsap_text">
+                            <h2>제 포트폴리오의 배경은 우주에서 바라보는 지구입니다. 넓고 넓은 우주에서 항상 푸른빛을 내며 움직이는 모습이 제가 추구하는 방향성과 비슷하다고 생각해 선택하게
+                                되었습니다. 직무에서 항상 필요로 하는 든든한 사람이 되고 싶고 묵묵히 자기 할 일 열심히 하는 그런 사람이 될 것입니다.</h2>
+                        </div> <!-- gsap_text end -->
+                    </div> <!-- aboutme_wrap end -->
+                </div> <!-- inner end -->
+            </section> <!-- about_me end -->
+
+            <section class="section design">
+                <div class="inner">
+                    <h2 class="title_design">DESIGN</h2> <!-- title_design end -->
+                </div> <!-- inner end -->
+            </section> <!-- design end -->
 
         </div> <!-- main end -->
     </div> <!-- wrap end -->.
