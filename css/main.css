@@ -18,6 +18,10 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+html {
+  /*    scroll-behavior: smooth; */
+}
+
 body .inner {
   max-width: 160rem;
   width: calc(100% - 60px);
@@ -175,6 +179,132 @@ body .inner {
   background-image: linear-gradient(#C1FCF5, #C1FCF5);
   background-size: 0% 100%;
 }
+.main .about_me {
+  width: 100%;
+  height: 200rem;
+  padding: 15rem 0;
+}
+.main .about_me .inner {
+  height: 100%;
+}
+.main .about_me .inner .title_aboutme {
+  font-family: "Heavitas";
+  font-size: clamp(6rem, 7vw + 1rem, 16rem);
+  color: rgba(193, 252, 245, 0.1254901961);
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 40%;
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+}
+.main .about_me .inner .aboutme_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 25%;
+}
+.main .about_me .inner .aboutme_wrap .about_info {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about {
+  display: flex;
+  justify-content: flex-end;
+  width: 45%;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .image {
+  width: 30%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 3rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .about_text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .about_text h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx {
+  display: flex;
+  gap: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx span {
+  color: #ccc;
+  font-size: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx p {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #eee;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education .education_text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education .education_text .tx {
+  display: flex;
+  gap: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education .education_text .tx span {
+  color: #ccc;
+  font-size: 2rem;
+}
+.main .about_me .inner .aboutme_wrap .about_info .education .education_text .tx p {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #eee;
+}
+.main .about_me .inner .aboutme_wrap .gsap_text {
+  width: 100%;
+  margin-top: 6rem;
+  padding: 0 10rem;
+}
+.main .about_me .inner .aboutme_wrap .gsap_text h2 {
+  font-size: clamp(2rem, 3.75vw + 1.59rem, 3.2rem);
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 1rem;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#fff, #fff);
+  background-size: 0% 100%;
+  display: block;
+  word-break: keep-all;
+}
 .main .mind_section {
   width: 100%;
   height: 300rem;
@@ -188,7 +318,7 @@ body .inner {
   perspective: 800px;
 }
 .main .mind_section .text_mind {
-  font-size: 11rem;
+  font-size: 9rem;
   font-weight: 700;
   color: #fff;
   transform-style: preserve-3d;
@@ -254,6 +384,8 @@ body .inner {
   height: 52rem;
   opacity: 0;
   transition: 0.3s;
+  border-radius: 2rem;
+  overflow: hidden;
 }
 .main .mind_section .image_mind .image_wrap .image.active {
   opacity: 1;
@@ -394,7 +526,8 @@ body .inner {
 }
 .main .project .inner .project_wrap .project_box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10rem;
   width: 100%;
   border: 3px solid rgba(0, 224, 255, 0.6);
   margin-bottom: 10rem;
@@ -413,13 +546,13 @@ body .inner {
   content: "";
   position: absolute;
   right: 10%;
-  bottom: 20%;
-  width: 20%;
+  bottom: 15%;
+  width: 15%;
   height: 30%;
   background: url("../img/qr-code(scott hamish).png") center center/cover no-repeat;
 }
 .main .project .inner .project_wrap .project_box .image {
-  width: 46%;
+  width: 40%;
   border-radius: 2rem;
   overflow: hidden;
 }
@@ -443,8 +576,9 @@ body .inner {
 }
 .main .project .inner .project_wrap .project_box .text_box .title h3 {
   color: #f1f1f1;
-  font-size: 5.6rem;
+  font-size: 4.8rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 .main .project .inner .project_wrap .project_box .text_box .title p {
   font-size: 2.4rem;
@@ -487,7 +621,7 @@ body .inner {
   justify-content: flex-start;
   align-items: center;
   gap: 7rem;
-  margin-top: 15rem;
+  margin-top: 8rem;
 }
 .main .project .inner .project_wrap .project_box .text_box .button a {
   font-weight: 300;
@@ -515,7 +649,7 @@ body .inner {
   box-shadow: inset 0 0 20px 10px rgba(0, 225, 255, 0.4039215686);
 }
 .main .clone {
-  height: 100rem;
+  height: 140rem;
   padding: 15rem 0;
 }
 .main .clone .inner {
@@ -539,13 +673,14 @@ body .inner {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   opacity: 0;
   transform: translateY(-10%);
   position: sticky;
 }
 .main .clone .inner .clone_wrap .clone_box {
-  width: 49.5%;
+  width: 47%;
   display: flex;
   justify-content: space-between;
 }
@@ -648,56 +783,8 @@ body .inner {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.main .about_me {
-  width: 100%;
-  height: 200rem;
-  padding: 15rem 0;
-}
-.main .about_me .inner {
-  height: 100%;
-}
-.main .about_me .inner .title_aboutme {
-  font-family: "Heavitas";
-  font-size: clamp(6rem, 7vw + 1rem, 16rem);
-  color: rgba(193, 252, 245, 0.1254901961);
-  position: sticky;
-  display: flex;
-  justify-content: center;
-  top: 40%;
-  /* transform: translate(-50%, -50%); */
-  z-index: -1;
-}
-.main .about_me .inner .aboutme_wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: sticky;
-  top: 40%;
-}
-.main .about_me .inner .aboutme_wrap .about_info {
-  width: 100%;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-}
-.main .about_me .inner .aboutme_wrap .about_info .about {
-  display: flex;
-  justify-content: space-between;
-  width: 40%;
-}
-.main .about_me .inner .aboutme_wrap .about_info .about .image {
-  width: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.main .about_me .inner .aboutme_wrap .about_info .about .image img {
-  width: 100%;
-  height: 100%;
-}
 .main .design {
-  height: 100rem;
+  height: 300rem;
   padding: 15rem 0;
 }
 .main .design .inner {

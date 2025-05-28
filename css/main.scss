@@ -22,6 +22,10 @@ body {
     font-family: "Outfit", sans-serif;
 }
 
+html {
+ /*    scroll-behavior: smooth; */
+}
+
 body {
     .inner {
         max-width: 160rem;
@@ -223,6 +227,152 @@ body {
         }
     }
 
+    .about_me {
+        width: 100%;
+        height: 200rem;
+        padding: 15rem 0;
+
+        .inner {
+            height: 100%;
+
+            .title_aboutme {
+                font-family: 'Heavitas';
+                font-size: clamp(6rem, 7vw + 1rem, 16rem);
+                color: #C1FCF520;
+                position: sticky;
+                display: flex;
+                justify-content: center;
+                top: 40%;
+                /* transform: translate(-50%, -50%); */
+                z-index: -1;
+            }
+
+            .aboutme_wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                position: sticky;
+                top: 25%;
+
+                .about_info {
+                    width: 100%;
+                    color: #fff;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .about {
+                        display: flex;
+                        justify-content: flex-end;
+                        width: 45%;
+
+                        .image {
+                            width: 30%;
+                            object-fit: cover;
+                            margin-right: 3rem;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                display: block;
+                            }
+                        }
+
+                        .about_text {
+                            width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2rem;
+
+                            h3 {
+                                font-size: 3rem;
+                                font-weight: 600;
+                                margin-bottom: 2rem;
+                            }
+
+                            .tx {
+                                display: flex;
+                                gap: 2rem;
+
+                                span {
+                                    color: #ccc;
+                                    font-size: 2rem;
+                                }
+
+                                p {
+                                    font-size: 2rem;
+                                    font-weight: 400;
+                                    color: #eee;
+                                }
+                            }
+                        }
+                    }
+
+                    .education {
+                        width: 45%;
+                        display: flex;
+                        flex-direction: column;
+
+
+                        h3 {
+                            font-size: 3rem;
+                            font-weight: 600;
+                            margin-bottom: 2rem;
+                            gap: 2rem;
+                        }
+
+                        .education_text {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2rem;
+                            margin-top: 2rem;
+
+                            .tx {
+                                display: flex;
+                                gap: 2rem;
+
+                                span {
+                                    color: #ccc;
+                                    font-size: 2rem;
+                                }
+
+                                p {
+                                    font-size: 2rem;
+                                    font-weight: 400;
+                                    color: #eee;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .gsap_text {
+                    width: 100%;
+                    margin-top: 6rem;
+                    padding: 0 10rem;
+
+                    h2 {
+                        font-size: clamp(2rem, 3.75vw + 1.59rem, 3.2rem);
+                        font-weight: 600;
+                        line-height: 1.6;
+                        text-align: center;
+                        margin-bottom: 1rem;
+                        -webkit-text-fill-color: rgb(255, 255, 255, 0.1);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        background-repeat: no-repeat;
+                        background-image: linear-gradient(#fff, #fff);
+                        background-size: 0% 100%;
+                        display: block;
+                        word-break: keep-all;
+                    }
+                }
+            }
+        }
+    }
+
     .mind_section {
         width: 100%;
         height: 300rem;
@@ -237,7 +387,7 @@ body {
         }
 
         .text_mind {
-            font-size: 11rem;
+            font-size: 9rem;
             font-weight: 700;
             color: #fff;
             transform-style: preserve-3d;
@@ -315,6 +465,9 @@ body {
                     height: 52rem;
                     opacity: 0;
                     transition: 0.3s;
+                    border-radius: 2rem;
+                    overflow: hidden;
+                    
 
                     &.active {
                         opacity: 1;
@@ -324,6 +477,7 @@ body {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        
 
                     }
                 }
@@ -493,7 +647,8 @@ body {
 
                 .project_box {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: center;
+                    gap: 10rem;
                     width: 100%;
                     border: 3px solid rgba(0, 224, 255, 0.6);
                     margin-bottom: 10rem;
@@ -513,8 +668,8 @@ body {
                                 content: '';
                                 position: absolute;
                                 right: 10%;
-                                bottom: 20%;
-                                width: 20%;
+                                bottom: 15%;
+                                width: 15%;
                                 height: 30%;
                                 background: url('../img/qr-code\(scott\ hamish\).png') center center / cover no-repeat;
                             }
@@ -523,7 +678,7 @@ body {
                     }
 
                     .image {
-                        width: 46%;
+                        width: 40%;
                         border-radius: 2rem;
                         overflow: hidden;
 
@@ -551,8 +706,9 @@ body {
 
                             h3 {
                                 color: #f1f1f1;
-                                font-size: 5.6rem;
+                                font-size: 4.8rem;
                                 font-weight: 700;
+                                letter-spacing: 0.5px;
                             }
 
                             p {
@@ -609,7 +765,7 @@ body {
                             justify-content: flex-start;
                             align-items: center;
                             gap: 7rem;
-                            margin-top: 15rem;
+                            margin-top: 8rem;
 
                             a {
                                 font-weight: 300;
@@ -649,7 +805,7 @@ body {
     }
 
     .clone {
-        height: 100rem;
+        height: 140rem;
         padding: 15rem 0;
 
         .inner {
@@ -674,13 +830,14 @@ body {
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
                 gap: 1rem;
                 opacity: 0;
                 transform: translateY(-10%);
                 position: sticky;
 
                 .clone_box {
-                    width: 49.5%;
+                    width: 47%;
                     display: flex;
                     justify-content: space-between;
 
@@ -817,64 +974,8 @@ body {
         }
     }
 
-    .about_me {
-        width: 100%;
-        height: 200rem;
-        padding: 15rem 0;
-
-        .inner {
-            height: 100%;
-
-            .title_aboutme {
-                font-family: 'Heavitas';
-                font-size: clamp(6rem, 7vw + 1rem, 16rem);
-                color: #C1FCF520;
-                position: sticky;
-                display: flex;
-                justify-content: center;
-                top: 40%;
-                /* transform: translate(-50%, -50%); */
-                z-index: -1;
-            }
-
-            .aboutme_wrap {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                position: sticky;
-                top: 40%;
-
-                .about_info {
-                    width: 100%;
-                    color: #fff;
-                    display: flex;
-                    justify-content: space-between;
-
-                    .about {
-                        display: flex;
-                        justify-content: space-between;
-
-                        width: 40%;
-
-                        .image {
-                            width: 50%;
-                            object-fit: cover;
-
-                            img {
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     .design {
-        height: 100rem;
+        height: 300rem;
         padding: 15rem 0;
 
         .inner {

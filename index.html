@@ -45,6 +45,18 @@
                 ScrollTrigger.update();
             });
 
+            /* 🛑🛑🛑🛑🛑a 태그 scroll smooth🛑🛑🛑🛑🛑 */
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', e => {
+                    e.preventDefault();
+                    const targetId = anchor.getAttribute('href');
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        lenis.scrollTo(targetEl);
+                    }
+                });
+            });
+
 
             /* 🛑🛑🛑🛑🛑background video scroll시 scale효과🛑🛑🛑🛑🛑 */
             gsap.registerPlugin(ScrollTrigger);
@@ -146,6 +158,23 @@
                     ease: 'none',
                 }
             );
+
+            /* 🛑🛑🛑🛑🛑aboutme섹션 h2 scroll 효과🛑🛑🛑🛑🛑 */
+            gsap.fromTo('.about_me .inner .gsap_text h2', {
+                'background-size': '0% 100%'
+            }, {
+                'background-size': '100% 100%',
+                scrollTrigger: {
+                    trigger: '.about_me',
+                    pinnedContainer: '.about_me .inner',
+                    start: 'top 10%',
+                    end: '50% 50%',
+                    /* markers: true, */ 
+                    scrub: 1
+
+                }
+            })
+
 
             /* 🛑🛑🛑🛑🛑mind_section .image등장 애니메이션🛑🛑🛑🛑🛑 */
             gsap.fromTo('.mind_section .image_mind',
@@ -315,6 +344,8 @@
                 }
             );
 
+
+
         }   /* script end */
     </script>
 </head>
@@ -336,13 +367,13 @@
 
 
         <div class="main">
-            <section class="section main_visual">
+            <section id="main_visual" class="section main_visual">
                 <nav class="nav">
                     <ul class="gnb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About me</a></li>
-                        <li><a href="#">Skills</a></li>
-                        <li><a href="#">Project</a></li>
+                        <li><a href="#main_visual">Home</a></li>
+                        <li><a href="#about_me">About me</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#project">Project</a></li>
                     </ul> <!-- gnb end -->
                 </nav> <!-- nav end -->
                 <div class="title_box">
@@ -350,23 +381,83 @@
                 </div> <!-- title_box end -->
             </section> <!-- main_visual end -->
 
+            <section id="about_me" class="section about_me">
+                <div class="inner">
+                    <h2 class="title_aboutme">About me</h2> <!-- title_aboutme end   -->
+
+                    <div class="aboutme_wrap">
+                        <div class="about_info">
+                            <div class="about">
+                                <div class="image">
+                                    <img src="img/picture.jpg" alt="증명사진 이미지">
+                                </div> <!-- image end -->
+
+                                <div class="about_text">
+                                    <h3>ABOUT</h3>
+                                    <div class="tx name">
+                                        <span>NAME :</span>
+                                        <p>이용훈</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx birth">
+                                        <span>BIRTH :</span>
+                                        <p>2000. 01. 18</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx tel">
+                                        <span>TEL :</span>
+                                        <p>010 - 4653 - 7140</p>
+                                    </div> <!-- name end -->
+                                    <div class="tx email">
+                                        <span>EMAIL :</span>
+                                        <p>dyd3536@naver.com</p>
+                                    </div> <!-- name end -->
+                                </div> <!--about_text end  -->
+                            </div> <!-- about end -->
+
+                            <div class="education">
+                                <h3>EDUCATION</h3>
+
+                                <div class="education_text">
+                                    <div class="tx first">
+                                        <p>그린컴퓨터아카데미 UI/UX 반응형 웹 디자인 & 퍼블리셔</p>
+                                        <span>2025.01 ~ 2025.06</span>
+                                    </div> <!-- tx first end -->
+                                    <div class="tx second">
+                                        <p>동명대학교 디지털 콘텐츠학과</p>
+                                        <span>졸업 2019.03 ~ 2025.02</span>
+                                    </div> <!-- tx first end -->
+                                    <div class="tx third">
+                                        <p>진주기계공업고등학교</p>
+                                        <span>졸업 2015.03 ~ 2018.02</span>
+                                    </div> <!-- tx first end -->
+                                </div> <!-- education_text end -->
+                            </div> <!-- deducation end -->
+                        </div> <!-- about_info end -->
+
+                        <div class="gsap_text">
+                            <h2>제 포트폴리오의 배경은 우주에서 바라보는 지구입니다. 넓고 넓은 우주에서 항상 푸른빛을 내며 움직이는 모습이 제가 추구하는 방향성과 비슷하다고 생각해 선택하게
+                                되었습니다. 직무에서 항상 필요로 하는 든든한 사람이 되고 싶고 묵묵히 자기 할 일 열심히 하는 그런 사람이 될 것입니다.</h2>
+                        </div> <!-- gsap_text end -->
+                    </div> <!-- aboutme_wrap end -->
+                </div> <!-- inner end -->
+            </section> <!-- about_me end -->
+
             <section class="section mind_section">
                 <div class="inner sticky_box">
                     <h3 class="text_mind">
-                        <p><span class="text_en">I always</span>
+                        <p><span class="text_en">I have always</span>
                             <span class="text_ko">저는 <b>항상</b></span>
                         </p>
 
-                        <p><span class="text_en">have the resolve</span>
-                            <span class="text_ko"><b>긍정적인 마음가짐</b>과 함께</span>
+                        <p><span class="text_en">positive personality</span>
+                            <span class="text_ko"><b>긍정적인 성격</b>을 가지고</span>
                         </p>
 
-                        <p><span class="text_en">to approach my duties<br /></span>
-                            <span class="text_ko">맡은바에 <b>최선을 다하는</b></span>
+                        <p><span class="text_en">responsibility for my duties</span>
+                            <span class="text_ko">맡은바에 <b>책임</b>을 가지며</span>
                         </p>
 
-                        <p><span class="text_en">with a positive mindset.</span>
-                            <span class="text_ko"><b>결심</b>을 지니고 있습니다.</span>
+                        <p><span class="text_en">confidence for sincerity</span>
+                            <span class="text_ko"><b>성실함</b>에 자신 있습니다.</span>
                         </p>
                     </h3> <!--text_mind end-->
 
@@ -374,15 +465,19 @@
                         <div class="image_wrap">
 
                             <div class="image">
-                                <img src="img/lusong1.jpg" alt="">
+                                <img src="img/image_1.jpg" alt="개인 이미지">
                             </div> <!-- image end -->
 
                             <div class="image">
-                                <img src="img/lusong6.jpg" alt="">
+                                <img src="img/image_3.jpg" alt="가족 이미지">
                             </div> <!-- image end -->
 
                             <div class="image">
-                                <img src="img/lusong4.jpg" alt="">
+                                <img src="img/image_4.jpg" alt="대학생활 이미지">
+                            </div> <!-- image end -->
+
+                            <div class="image">
+                                <img src="img/image_5.jpg" alt="대학생활 이미지2">
                             </div> <!-- image end -->
 
 
@@ -391,7 +486,7 @@
                 </div> <!-- sticky_box end -->
             </section> <!-- mind_section end -->
 
-            <section class="section skills">
+            <section id="skills" class="section skills">
                 <div class="inner">
                     <h2 class="title_skills">SKILLS</h2> <!-- skills -->
 
@@ -421,7 +516,7 @@
                 </div> <!-- inner end -->
             </section> <!-- section skills end -->
 
-            <section class="section project">
+            <section id="project" class="section project">
                 <div class="inner">
                     <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
 
@@ -563,10 +658,11 @@
                                     </div> <!-- text end -->
                                 </div> <!-- cont end -->
                                 <div class="button">
-                                    <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">prototype</a>
+                                    <a href="https://www.figma.com/proto/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=2-9&p=f&t=5uREYHI9QbJhooua-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=252%3A808&show-proto-sidebar=1"
+                                        target="_blank">prototype</a>
                                     <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"
                                         target="_blank">process</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"
+                                    <a href="https://www.figma.com/design/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=0-1&p=f&t=IOvhCDM5chSxoM73-0"
                                         target="_blank">figma</a>
                                 </div> <!-- button end -->
                             </div> <!-- text_box end    -->
@@ -697,66 +793,6 @@
                     </div> <!-- clone_wrap end -->
                 </div> <!-- inner end -->
             </section> <!-- clone end -->
-
-            <section class="section about_me">
-                <div class="inner">
-                    <h2 class="title_aboutme">About me</h2> <!-- title_aboutme end   -->
-
-                    <div class="aboutme_wrap">
-                        <div class="about_info">
-                            <div class="about">
-                                <div class="image">
-                                    <img src="img/lusong1.jpg" alt="증명사진 이미지">
-                                </div> <!-- image end -->
-
-                                <div class="about_text">
-                                    <h3>ABOUT</h3>
-                                    <div class="tx name">
-                                        <span>NAME:</span>
-                                        <p>이용훈</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx birth">
-                                        <span>BIRTH:</span>
-                                        <p>2000. 01. 18</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx tel">
-                                        <span>TEL:</span>
-                                        <p>010 - 4653 - 7140</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx email">
-                                        <span>EMAIL:</span>
-                                        <p>dyd3536@naver.com</p>
-                                    </div> <!-- name end -->
-                                </div> <!--about_text end  -->
-                            </div> <!-- about end -->
-
-                            <div class="education">
-                                <h3>EDUCATION</h3>
-
-                                <div class="education_text">
-                                    <div class="tx first">
-                                        <p>그린컴퓨터아카데미 UI/UX 반응형 웹 디자인 & 퍼블리셔</p>
-                                        <span>2025.01 ~ 2025.06</span>
-                                    </div> <!-- tx first end -->
-                                    <div class="tx second">
-                                        <p>동명대학교 디지털 콘텐츠학과</p>
-                                        <span>졸업 2019.03 ~ 2025.02</span>
-                                    </div> <!-- tx first end -->
-                                    <div class="tx third">
-                                        <p>진주기계공업고등학교</p>
-                                        <span>졸업 2015.03 ~ 2018.02</span>
-                                    </div> <!-- tx first end -->
-                                </div> <!-- education_text end -->
-                            </div> <!-- deducation end -->
-                        </div> <!-- about_info end -->
-
-                        <div class="gsap_text">
-                            <h2>제 포트폴리오의 배경은 우주에서 바라보는 지구입니다. 넓고 넓은 우주에서 항상 푸른빛을 내며 움직이는 모습이 제가 추구하는 방향성과 비슷하다고 생각해 선택하게
-                                되었습니다. 직무에서 항상 필요로 하는 든든한 사람이 되고 싶고 묵묵히 자기 할 일 열심히 하는 그런 사람이 될 것입니다.</h2>
-                        </div> <!-- gsap_text end -->
-                    </div> <!-- aboutme_wrap end -->
-                </div> <!-- inner end -->
-            </section> <!-- about_me end -->
 
             <section class="section design">
                 <div class="inner">
