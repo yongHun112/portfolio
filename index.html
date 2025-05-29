@@ -11,22 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
-<!--     <script src="lib/SplitText.min.js"></script> -->
+    <!--     <script src="lib/SplitText.min.js"></script> -->
 
     <script>
         window.onload = function () {
-            /* 🛑🛑🛑🛑🛑마우스 커서 따라다니는 우주선🛑🛑🛑🛑🛑 */
-            const spaceShip = document.querySelector('.spaceship');
-            document.addEventListener('mousemove', (e) => {
-
-                gsap.to(spaceShip, {
-                    x: e.clientX - 50, /* 중심 위치 보정 */
-                    y: e.clientY - 50,
-                    duration: 3,
-                    ease: "power3.out"
-                });
-            });
-
 
             /* 🛑🛑🛑🛑🛑smooth scroll🛑🛑🛑🛑🛑 */
             const lenis = new Lenis({
@@ -46,6 +34,30 @@
                 ScrollTrigger.update();
             });
 
+
+             /* 🛑🛑🛑🛑🛑페이지 시작시 안내 문구 🛑🛑🛑🛑🛑 */
+            const startPage = document.querySelector('.start');
+            const popBtn = document.querySelector('.start .button');
+
+            popBtn.addEventListener('click', () => {
+                startPage.classList.add('active');
+            })
+
+
+
+            /* 🛑🛑🛑🛑🛑마우스 커서 따라다니는 우주선🛑🛑🛑🛑🛑 */
+            const spaceShip = document.querySelector('.spaceship');
+            document.addEventListener('mousemove', (e) => {
+
+                gsap.to(spaceShip, {
+                    x: e.clientX - 50, /* 중심 위치 보정 */
+                    y: e.clientY - 50,
+                    duration: 3,
+                    ease: "power3.out"
+                });
+            });
+
+
             /* 🛑🛑🛑🛑🛑a 태그 scroll smooth🛑🛑🛑🛑🛑 */
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', e => {
@@ -61,7 +73,7 @@
 
             /* 🛑🛑🛑🛑🛑background video scroll시 scale효과🛑🛑🛑🛑🛑 */
             gsap.registerPlugin(ScrollTrigger);
-
+            
             gsap.fromTo(".video_background",
                 {
                     scale: 1 //시작값
@@ -109,11 +121,8 @@
                 }
             });
 
-            /* 🛑🛑🛑🛑🛑main_visual title 애니메이션🛑🛑🛑🛑🛑 */
-/*             document.fonts.ready.then(() => {
-                const split = new SplitText(".title", { type: "chars" });
-            }); */
 
+            /* 🛑🛑🛑🛑🛑main_visual title 애니메이션🛑🛑🛑🛑🛑 */
             gsap.set('.main_visual .title', {
                 z: -1100,
                 opacity: 0
@@ -126,6 +135,7 @@
                 ease: 'none',
             });
             gsap.to('.main_visual .title span', {
+
                 'background-size': '100% 100%',
                 scale: 1.1,
                 rotationX: 1.2,
@@ -134,7 +144,10 @@
                 repeat: -1, /* 무한 반복 */
                 yoyo: true  /* 원상태 복귀 */
             })
+            
+            
             /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
+
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.fromTo('.mind_section .text_mind',
@@ -160,7 +173,9 @@
                 }
             );
 
+
             /* 🛑🛑🛑🛑🛑aboutme섹션 h2 scroll 효과🛑🛑🛑🛑🛑 */
+
             gsap.fromTo('.about_me .inner .gsap_text h2', {
                 'background-size': '0% 100%'
             }, {
@@ -178,6 +193,7 @@
 
 
             /* 🛑🛑🛑🛑🛑mind_section .image등장 애니메이션🛑🛑🛑🛑🛑 */
+
             gsap.fromTo('.mind_section .image_mind',
                 {
                     z: -800,
@@ -201,7 +217,9 @@
                 }
             );
 
+
             /* 🛑🛑🛑🛑🛑mind_section 이미지등장 애니메이션🛑🛑🛑🛑🛑 */
+
             mindText = document.querySelectorAll('.mind_section .sticky_box .text_mind p');
             mindImage = document.querySelectorAll('.mind_section .sticky_box .image_mind .image');
 
@@ -216,6 +234,7 @@
 
 
             /* 🛑🛑🛑🛑🛑skills_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
+
             gsap.set('.skills .title_skills', {
                 opacity: 0,
                 z: -800,
@@ -237,8 +256,7 @@
                 duration: 1,
                 ease: 'none'
             });
-
-            // 두 번째 요소 초기 상태
+           
             gsap.set('.skills .skills_wrap', {
                 opacity: 0,
                 z: -800,
@@ -261,6 +279,7 @@
                 ease: 'none'
             });
 
+
             /* 🛑🛑🛑🛑🛑skills_section .이미지 hover 시 텍스트 바뀜🛑🛑🛑🛑🛑 */
             skillImage = document.querySelectorAll('.skills .skills_wrap .skills_image img');
             skillText = document.querySelectorAll('.skills .skills_wrap .skills_text .text');
@@ -276,6 +295,7 @@
                     skillText[index].classList.remove('active');
                 });
             });
+
 
             /* 🛑🛑🛑🛑🛑project섹션 .이미지 rotateZ🛑🛑🛑🛑🛑 */
             gsap.fromTo('.project .inner .project_wrap .project_box',
@@ -303,8 +323,8 @@
                 }
             );
 
-            /* 🛑🛑🛑🛑🛑clone섹션 .text mouseenter시  image opacity 1🛑🛑🛑🛑🛑 */
 
+            /* 🛑🛑🛑🛑🛑clone섹션 .text mouseenter시  image opacity 1🛑🛑🛑🛑🛑 */
             let cloneText = document.querySelectorAll('.clone .clone_wrap .text_box');
             let cloneImage = document.querySelectorAll('.clone .clone_wrap .image_box');
 
@@ -505,6 +525,19 @@
 </head>
 
 <body>
+    <div class="start">
+        <div class="pop_up">
+            <div class="pop_text">
+                <p>본 포트폴리오는 해상도 1920 X 1080에 최적화 되어 있습니다.</p>
+                <span> * 추후 반응형 작업 예정입니다.</span>
+            </div> <!-- pop_text end -->
+
+            <button class="button">닫기</button> <!-- button end -->
+        </div> <!-- pop_up end -->
+
+
+    </div> <!-- start end -->
+
     <div class="spaceship"><img src="img/3d-rendering-universe-icon.png" alt="3D UFO이미지"></div>
     <div class="video_background">
         <video src="img/0_Earth_Night_1920x1080.mp4" autoplay muted loop></video>

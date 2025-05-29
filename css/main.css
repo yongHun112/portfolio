@@ -46,6 +46,55 @@ body .inner {
   background: rgba(241, 241, 241, 0.082);
 }
 
+.start {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8235294118);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.start.active {
+  display: none;
+}
+.start .pop_up {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start .pop_up .pop_text {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+}
+.start .pop_up .pop_text p {
+  font-size: 3.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.start .pop_up .pop_text span {
+  font-size: 2rem;
+  color: #bbb;
+}
+.start .pop_up .button {
+  font-size: 3.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.start .pop_up .button:hover {
+  color: #00E0FF;
+  transform: scale(1.1);
+}
+
 .spaceship {
   position: fixed;
   top: 0;
