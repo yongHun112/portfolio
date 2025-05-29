@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
+<!--     <script src="lib/SplitText.min.js"></script> -->
 
     <script>
         window.onload = function () {
@@ -109,9 +110,9 @@
             });
 
             /* 🛑🛑🛑🛑🛑main_visual title 애니메이션🛑🛑🛑🛑🛑 */
-            document.fonts.ready.then(() => {
+/*             document.fonts.ready.then(() => {
                 const split = new SplitText(".title", { type: "chars" });
-            });
+            }); */
 
             gsap.set('.main_visual .title', {
                 z: -1100,
@@ -169,7 +170,7 @@
                     pinnedContainer: '.about_me .inner',
                     start: 'top 10%',
                     end: '50% 50%',
-                    /* markers: true, */ 
+                    /* markers: true, */
                     scrub: 1
 
                 }
@@ -344,6 +345,159 @@
                 }
             );
 
+            gsap.fromTo('.design .design_wrap .img1',
+                {
+                    left: '50%',
+                    top: 0,
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: 'top 80%',
+                        end: '10% 40%',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    left: '20%',
+                    top: '10%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img2',
+                {
+                    left: '50%',
+                    top: 0,
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: 'top 80%',
+                        end: '10% 40%',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    left: '84%',
+                    top: '10%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img3',
+                {
+                    left: '50%',
+                    top: '30%',
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: '15% top',
+                        end: '45% center',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true  */
+                    },
+                    left: '20%',
+                    top: '35%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img4',
+                {
+                    left: '50%',
+                    top: '30%',
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: '15% 30%',
+                        end: '45% 40%',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    left: '84%',
+                    top: '35%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img5',
+                {
+                    left: '50%',
+                    top: '60%',
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: '40% top',
+                        end: '55% top',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    left: '20%',
+                    top: '60%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img6',
+                {
+                    left: '50%',
+                    top: '60%',
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: '40% top',
+                        end: '55% top',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    left: '84%',
+                    top: '60%',
+                    duration: 0.8,
+                    opacity: 0.9
+                }
+            );
+
+            gsap.fromTo('.design .design_wrap .img7',
+                {
+                    left: '50%',
+                    top: '20%',
+                    opacity: 0
+                },
+                {
+                    scrollTrigger: {
+                        trigger: '.design .design_wrap',
+                        start: 'top 80%',
+                        end: '30% top',
+                        scrub: 1,
+                        toggleActions: 'play reverse play reverse',
+                        /* markers: true */
+                    },
+                    duration: 0.5,
+                    opacity: 0.9
+                }
+            );
+
+
 
 
         }   /* script end */
@@ -364,7 +518,6 @@
                 <p class="portfolio_text">2025 Portfolio</p>
             </div> <!-- inner end -->
         </header> <!-- heder end -->
-
 
         <div class="main">
             <section id="main_visual" class="section main_visual">
@@ -627,7 +780,7 @@
                                 <div class="button">
                                     <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
                                     <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/이용훈_디자인구성요소제작.pdf"
+                                    <a href="https://yonghun112.github.io/scott-hemish/process/scotthamish.pdf"
                                         target="_blank">process</a>
                                     <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0"
                                         target="_blank">figma</a>
@@ -797,10 +950,65 @@
             <section class="section design">
                 <div class="inner">
                     <h2 class="title_design">DESIGN</h2> <!-- title_design end -->
+
+                    <div class="design_wrap">
+                        <div class="design_box">
+                            <div class="design_image img1">
+                                <img src="img/유리배경-아이스크림.png" alt="유리배경-아이스크림 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img2">
+                                <img src="img/플라스틱 다이어트 방법.png" alt="플라스틱 다이어트 방법 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img3">
+                                <img src="img/수딩크림.png" alt="수당크림 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img4">
+                                <img src="img/신혼부부 최애템.png" alt="신혼부부 최애템 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img5">
+                                <img src="img/유럽.png" alt="유럽 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img6">
+                                <img src="img/Untitled-2.png" alt="일러스트 이미지">
+                            </div> <!-- design_image end -->
+
+                            <div class="design_image img7">
+                                <img src="img/Untitled-sdss.jpg" alt="일러스트 이미지2">
+                            </div> <!-- design_image end -->
+                        </div> <!-- design_box end -->
+                    </div> <!-- design_wrap end -->
                 </div> <!-- inner end -->
             </section> <!-- design end -->
-
         </div> <!-- main end -->
+
+        <footer class="footer">
+            <div class="inner">
+                <div class="footer_wrap">
+                    <div class="contact">
+
+                        <a href="https://github.com/yongHun112" target="_blank">Github</a>
+
+                        <a href="#">Email
+                            <span>dyd3536@naver.com</span>
+                        </a>
+
+                        <a href="#">Tel
+                            <span>010 - 4653 - 7140</span>
+                        </a>
+
+                    </div> <!-- contact end -->
+
+                    <div class="copy">
+                        Copyrightⓒ2025.Yonghun Lee.All rightsreserved.
+                    </div>
+                </div> <!-- footer_wrap end -->
+            </div> <!-- inner end -->
+        </footer> <!-- footer end -->
     </div> <!-- wrap end -->.
 </body>
 
