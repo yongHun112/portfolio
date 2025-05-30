@@ -35,7 +35,7 @@
             });
 
 
-             /* 🛑🛑🛑🛑🛑페이지 시작시 안내 문구 🛑🛑🛑🛑🛑 */
+            /* 🛑🛑🛑🛑🛑페이지 시작시 안내 문구 🛑🛑🛑🛑🛑 */
             const startPage = document.querySelector('.start');
             const popBtn = document.querySelector('.start .button');
 
@@ -73,7 +73,7 @@
 
             /* 🛑🛑🛑🛑🛑background video scroll시 scale효과🛑🛑🛑🛑🛑 */
             gsap.registerPlugin(ScrollTrigger);
-            
+
             gsap.fromTo(".video_background",
                 {
                     scale: 1 //시작값
@@ -144,8 +144,8 @@
                 repeat: -1, /* 무한 반복 */
                 yoyo: true  /* 원상태 복귀 */
             })
-            
-            
+
+
             /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
 
             gsap.registerPlugin(ScrollTrigger);
@@ -256,7 +256,7 @@
                 duration: 1,
                 ease: 'none'
             });
-           
+
             gsap.set('.skills .skills_wrap', {
                 opacity: 0,
                 z: -800,
@@ -609,11 +609,11 @@
                                     </div> <!-- tx first end -->
                                     <div class="tx second">
                                         <p>동명대학교 디지털 콘텐츠학과</p>
-                                        <span>졸업 2019.03 ~ 2025.02</span>
+                                        <span>졸업 2025.02</span>
                                     </div> <!-- tx first end -->
                                     <div class="tx third">
                                         <p>진주기계공업고등학교</p>
-                                        <span>졸업 2015.03 ~ 2018.02</span>
+                                        <span>졸업 2018.02</span>
                                     </div> <!-- tx first end -->
                                 </div> <!-- education_text end -->
                             </div> <!-- deducation end -->
@@ -680,22 +680,26 @@
                         <div class="skills_image">
                             <div class="image_wrap">
                                 <img src="img/HTML_image.png" alt="html이미지">
-                                <img src="img/SCSS_image.png" alt="scss이미지">
-                                <img src="img/FIGMA_image.png" alt="figma이미지">
-                                <img src="img/JS_image.png" alt="js이미지">
                                 <img src="img/CSS_image.png" alt="css이미지">
-                                <img src="img/JQUERY_image.png" alt="jquery이미지">
+                                <img src="img/SCSS_image.png" alt="scss이미지">
+                                <img src="img/JS_image.png" alt="js이미지">
+                                <img src="img/JQUERY_image.png" alt="jquery이미지">.
+                                <img src="img/FIGMA_image.png" alt="figma이미지">
+                                <img src="img/adobe-photoshop.png" alt="photoshop이미지">
+                                <img src="img/adobe-illustrator.png" alt="illustarator이미지">
                             </div> <!-- image_wrap end -->
                         </div> <!-- skills_image end -->
 
                         <div class="skills_text">
                             <div class="text_wrap">
-                                <p class="text">전체적인 웹 구조를 이해하고 배웠으며 시멘틱 마크업을 사용하며 웹 표준성 및 접근성을 준수합니다.</p>
-                                <p class="text">css를 구조화 하여 가독성과 유지보수에 원활함이 있어 적극 사용 가능합니다.</p>
-                                <p class="text">웹사이트 와이어 프레임 구조 제작 및 프로토타입 구현 할 수 있습니다.</p>
-                                <p class="text">클릭과 hover 및 스크롤 이벤트 등 동적 기능과 라이브러리 활용 가능합니다.</p>
-                                <p class="text">클래스와 아이디를 적극 활용하며 여러 단위들을 사용하여 효율적인 반응형 디자인을 제작할 수 있습니다.</p>
-                                <p class="text">자바스크립트와 같이 기본적인 애니메이션 구현 및 이벤트 활용 가능합니다.</p>
+                                <p class="text html">전체적인 웹 구조를 이해하고, 시멘틱 태그로 웹 표준과 접근성을 준수하여 작성할 수 있습니다.</p>
+                                <p class="text css">클래스와 아이디를 적극 활용하며 여러 단위들을 사용하여 효율적인 반응형 디자인을 제작할 수 있습니다.</p>
+                                <p class="text scss">중첩되는 선택자로 가독성을 높일 수 있고, 유지보수에 원활함이 있어 적극 사용 가능합니다.</p>
+                                <p class="text js">클릭과 hover 및 스크롤 이벤트 등 동적 기능과 라이브러리 활용하여 인터랙션한 화면 구현이 가능합니다.</p>
+                                <p class="text jquery">이벤트 동작과 애니메이션 기능을 활용한 동적 화면을 제작 가능합니다.</p>
+                                <p class="text figma">웹사이트 와이어 프레임 구조 제작 및 프로토타입 구현 할 수 있습니다.</p>
+                                <p class="text photoshop">웹사이트 와이어 프레임 구조 및 이벤트 포스터등 을 제작할 수 있습니다.</p>
+                                <p class="text illustrator">카드 뉴스 및 그래픽 디자인을 제작할 수 있습니다.</p>
                             </div> <!-- text_wrap end -->
                         </div> <!-- skills_text end -->
                     </div> <!-- skills_wrap -->
@@ -707,40 +711,40 @@
                     <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
 
                     <div class="project_wrap">
-
                         <div class="project_box">
 
                             <div class="image">
-                                <img src="img/mocup1.png" alt="테일러메이드 목업이미지"></a>
+                                <img src="img/Group 202.png" alt="스콧해미쉬 목업이미지"></a>
                             </div> <!-- image end -->
                             <div class="text_box">
                                 <div class="title">
-                                    <h3>TaylorMade</h3>
-                                    <p>메인페이지</p>
+                                    <h3>Scott Hamish</h3>
+                                    <p>메인페이지, 상품페이지</p>
                                 </div> <!-- title end -->
 
                                 <div class="cont">
 
                                     <p class="use_tool">
-                                        <span>#photoshop</span>
+                                        <span>#figma</span>
                                         <span>#html5</span>
-                                        <span>#css3</span>
+                                        <span>#scss</span>
                                         <span>#javascript</span>
-                                        <span>#swiper-js</span>
-                                        <span>#AOS</span>
+                                        <span>#gsap</span>
                                     </p> <!-- use_tool  end-->
 
-                                    <div class="text">골프웨어 및 장비 브랜드인 테일러메이드 홈페이지 리뉴얼입니다. 브랜드 색상에 맞춘
-                                        전체적인 분위기와 한층 더 고급스러움을 주고 동적인 디자인을 고려해 디자인과 제작을 하였습니다.
-
-                                        <p>디자인 / 퍼블리싱 / 기획 100%</p>
+                                    <div class="text">
+                                        남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
+                                        생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
+                                        <p>기획 / 디자인 / 퍼블리싱 / <span>반응형 100%</span></p>
                                     </div> <!-- text end -->
                                 </div> <!-- cont end -->
                                 <div class="button">
-                                    <a href="https://yonghun112.github.io/taylorMade/" target="_blank">website</a>
-                                    <a href="https://github.com/yongHun112/taylorMade" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/taylorMade/process/이용훈_비주얼아이데이션구상.pdf"
+                                    <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
+                                    <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
+                                    <a href="https://yonghun112.github.io/scott-hemish/process/scotthamish.pdf"
                                         target="_blank">process</a>
+                                    <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0"
+                                        target="_blank">figma</a>
                                 </div> <!-- button end -->
                             </div> <!-- text_box end    -->
                         </div> <!-- project_box end -->
@@ -770,7 +774,7 @@
                                         바탕으로 한 이미지들과 남녀노소 어렵지 않게 홈페이지를 이용할 수 있도록 전체적으로 크고 한눈에 알기 쉬운 디자인으로
                                         제작하였습니다.
 
-                                        <p>디자인 / 퍼블리싱 / 기획 100%</p>
+                                        <p>기획 / 디자인 / 퍼블리싱 100%</p>
                                     </div> <!-- text end -->
                                 </div> <!-- cont end -->
                                 <div class="button">
@@ -786,37 +790,36 @@
                         <div class="project_box">
 
                             <div class="image">
-                                <img src="img/Group 202.png" alt="스콧해미쉬 목업이미지"></a>
+                                <img src="img/mocup1.png" alt="테일러메이드 목업이미지"></a>
                             </div> <!-- image end -->
                             <div class="text_box">
                                 <div class="title">
-                                    <h3>Scott Hamish</h3>
-                                    <p>메인페이지, 상품페이지</p>
+                                    <h3>TaylorMade</h3>
+                                    <p>메인페이지</p>
                                 </div> <!-- title end -->
 
                                 <div class="cont">
 
                                     <p class="use_tool">
-                                        <span>#figma</span>
+                                        <span>#photoshop</span>
                                         <span>#html5</span>
-                                        <span>#scss</span>
+                                        <span>#css3</span>
                                         <span>#javascript</span>
-                                        <span>#gsap</span>
+                                        <span>#swiper-js</span>
+                                        <span>#AOS</span>
                                     </p> <!-- use_tool  end-->
 
-                                    <div class="text">
-                                        남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
-                                        생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
-                                        <p>디자인 / 퍼블리싱 / 기획 / <span>반응형 100%</span></p>
+                                    <div class="text">골프웨어 및 장비 브랜드인 테일러메이드 홈페이지 리뉴얼입니다. 브랜드 색상에 맞춘
+                                        전체적인 분위기와 한층 더 고급스러움을 주고 동적인 디자인을 고려해 디자인과 제작을 하였습니다.
+
+                                        <p>기획 / 디자인 / 퍼블리싱 100%</p>
                                     </div> <!-- text end -->
                                 </div> <!-- cont end -->
                                 <div class="button">
-                                    <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
-                                    <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/scotthamish.pdf"
+                                    <a href="https://yonghun112.github.io/taylorMade/" target="_blank">website</a>
+                                    <a href="https://github.com/yongHun112/taylorMade" target="_blank">github</a>
+                                    <a href="https://yonghun112.github.io/taylorMade/process/이용훈_비주얼아이데이션구상.pdf"
                                         target="_blank">process</a>
-                                    <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0"
-                                        target="_blank">figma</a>
                                 </div> <!-- button end -->
                             </div> <!-- text_box end    -->
                         </div> <!-- project_box end -->
@@ -838,9 +841,9 @@
                                     </p> <!-- use_tool  end-->
 
                                     <div class="text">
-                                        남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
-                                        생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
-                                        <p>디자인 / 기획 / 100%</p>
+                                        빅데이터를 활용하여 국내 전국 맛집을 알려주는 다이닝코드 앱 리뉴얼입니다. 메인페이지에 여러 아이콘들과 탭을 추가하며 가독성을 높이고,
+                                        포인트컬러를 사용해 전체적으로 깔끔한 느낌을 주는 디자인으로 제작하였습니다.
+                                        <p>기획 / 디자인 / 100%</p>
                                     </div> <!-- text end -->
                                 </div> <!-- cont end -->
                                 <div class="button">
