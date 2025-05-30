@@ -916,7 +916,7 @@ body {
         padding: 15rem 0;
 
         .inner {
-            max-width: 160rem;
+            max-width: 170rem;
             width: calc((100% - 60px));
             margin: 0 auto;
 
@@ -944,7 +944,7 @@ body {
                 position: sticky;
 
                 .clone_box {
-                    width: 47%;
+                    width: 49.5%;
                     display: flex;
                     justify-content: space-between;
 
@@ -1011,6 +1011,8 @@ body {
                                 font-size: 1.8rem;
                                 color: #eee;
                                 line-height: 1.5;
+                                word-break: keep-all;
+                                letter-spacing: 0.5px;
 
                                 span {
                                     color: #00e1ffd3;
