@@ -756,7 +756,7 @@ body {
                             &::after {
                                 content: '';
                                 position: absolute;
-                                right: 8%;
+                                right: 0;
                                 bottom: 15%;
                                 width: 15%;
                                 height: 30%;
@@ -774,7 +774,7 @@ body {
                             &::after {
                                 content: '';
                                 position: absolute;
-                                right: 8%;
+                                right: 0;
                                 bottom: 15%;
                                 width: 15%;
                                 height: 30%;
@@ -1170,6 +1170,22 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            position: relative;
+
+            h2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-30%,-50%);
+                color: #fff;
+                opacity: 0.1;
+                font-size: 16rem;
+                font-family: 'Heavitas';
+                width: 100%;
+                z-index: -1;
+                line-height: 1.2;
+
+            }
 
 
             .contact {
@@ -1200,38 +1216,15 @@ body {
                     span {
                         margin-left: 4rem;
                         transition: 0.7s;
-                        opacity: 0;
-                        visibility: hidden;
                         font-size: 4.2rem;
                         color: #fff;
                     }
 
 
-                    &::after {
-                        content: '';
-                        width: 100%;
-                        height: 14px;
-                        background-color: #00E0FF;
-                        position: absolute;
-                        bottom: -10px;
-                        right: 0;
-                        transform: translateX(-101%);
-                        transition: 0.5s;
-
-                    }
-
                     &:hover {
                         color: #00E0FF;
+                        transform: scale(1.1);
 
-                        &::after {
-                            transform: translateX(0);
-                        }
-
-                        span {
-                            opacity: 1;
-                            visibility: visible;
-
-                        }
                     }
                 }
 
@@ -1319,6 +1312,9 @@ body {
                         &:hover {
                             transform: scale(1.1);
                             color: #00E0FF;
+
+                            span {
+                            }
                         }
                     }
                 }
