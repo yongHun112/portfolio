@@ -992,7 +992,6 @@ body .inner {
 }
 .footer .inner .footer_wrap .contact a:hover {
   color: #00E0FF;
-  transform: scale(1.1);
 }
 .footer .inner .footer_wrap .copy {
   width: 49%;
