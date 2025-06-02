@@ -793,8 +793,8 @@ body .inner {
   color: #fff;
   padding: 3rem 2rem;
   background-color: transparent;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
 }
 .main .clone .inner .clone_wrap .clone_box .text_box:hover {
   border: 2px solid rgba(0, 225, 255, 0.7450980392);
@@ -952,10 +952,10 @@ body .inner {
 .footer .inner .footer_wrap h2 {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 70%;
   transform: translate(-30%, -50%);
   color: #fff;
-  opacity: 0.1;
+  opacity: 0.5;
   font-size: 16rem;
   font-family: "Heavitas";
   width: 100%;

@@ -977,7 +977,7 @@ body {
                         color: #fff;
                         padding: 3rem 2rem;
                         background-color: transparent;
-                        backdrop-filter: blur(6px);
+                        backdrop-filter: blur(20px);
 
                         &:hover {
                             border: 2px solid #00e1ffbe;
@@ -1175,10 +1175,10 @@ body {
             h2 {
                 position: absolute;
                 top: 50%;
-                left: 50%;
+                left: 70%;
                 transform: translate(-30%,-50%);
                 color: #fff;
-                opacity: 0.1;
+                opacity: 0.5;
                 font-size: 16rem;
                 font-family: 'Heavitas';
                 width: 100%;
