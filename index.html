@@ -175,21 +175,43 @@
 
 
             /* 🛑🛑🛑🛑🛑aboutme섹션 h2 scroll 효과🛑🛑🛑🛑🛑 */
+            ScrollTrigger.matchMedia({
+                // ✅ 모바일 (768px 이하)
+                "(max-width: 768px)": function () {
+                    gsap.fromTo('.about_me .inner .gsap_text h2',
+                        { 'background-size': '0% 100%' },
+                        {
+                            'background-size': '100% 100%',
+                            scrollTrigger: {
+                                trigger: '.about_me',
+                                pinnedContainer: '.about_me .inner',
+                                start: 'center 40%',
+                                end: 'bottom 80%',
+                                /* markers: true, */
+                                scrub: 1
+                            }
+                        }
+                    );
+                },
 
-            gsap.fromTo('.about_me .inner .gsap_text h2', {
-                'background-size': '0% 100%'
-            }, {
-                'background-size': '100% 100%',
-                scrollTrigger: {
-                    trigger: '.about_me',
-                    pinnedContainer: '.about_me .inner',
-                    start: 'top 10%',
-                    end: '50% 50%',
-                    /* markers: true, */
-                    scrub: 1
-
+                // ✅ 데스크탑 (501px 이상)
+                "(min-width: 501px)": function () {
+                    gsap.fromTo('.about_me .inner .gsap_text h2',
+                        { 'background-size': '0% 100%' },
+                        {
+                            'background-size': '100% 100%',
+                            scrollTrigger: {
+                                trigger: '.about_me',
+                                pinnedContainer: '.about_me .inner',
+                                start: 'top 10%',
+                                end: '50% 50%',
+                                /* markers: true, */
+                                scrub: 1
+                            }
+                        }
+                    );
                 }
-            })
+            });
 
 
             /* 🛑🛑🛑🛑🛑mind_section .image등장 애니메이션🛑🛑🛑🛑🛑 */
@@ -1049,7 +1071,7 @@
 
                     <div class="copy">
                         <h2>
-                           ⓒLEE<br/> YONGHUN
+                            ⓒLEE<br /> YONGHUN
                         </h2>
                         Copyrightⓒ2025.Yonghun Lee.All rights reserved.
                     </div>

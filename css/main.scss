@@ -234,6 +234,7 @@ body {
             height: 4rem;
             transform: translateX(-50%);
             color: #fff;
+            z-index: 100;
 
             &.active {
                 position: fixed;
@@ -252,6 +253,7 @@ body {
                 li {
                     font-size: 2.4rem;
                     transition: 0.3s;
+                    white-space: nowrap;
 
                     &:hover {
                         transform: scale(1.1);
@@ -370,14 +372,16 @@ body {
                             .tx {
                                 display: flex;
                                 gap: 2rem;
+                                align-items: center;
 
                                 span {
                                     color: #ccc;
                                     font-size: 2rem;
+                                    white-space: nowrap;
                                 }
 
                                 p {
-                                    font-size: 2rem;
+                                    font-size: 2.4rem;
                                     font-weight: 400;
                                     color: #eee;
                                 }
@@ -429,7 +433,7 @@ body {
                     padding: 0 10rem;
 
                     h2 {
-                        font-size: clamp(2rem, 3.75vw + 1.59rem, 3.2rem);
+                        font-size: clamp(2rem, 5vw + 1.49rem, 3.2rem);
                         font-weight: 600;
                         line-height: 1.6;
                         text-align: center;
@@ -462,7 +466,7 @@ body {
         }
 
         .text_mind {
-            font-size: 9rem;
+            font-size: clamp(4rem, 5vw, 9rem);
             font-weight: 700;
             color: #fff;
             transform-style: preserve-3d;
@@ -481,6 +485,7 @@ body {
                 line-height: 1;
                 overflow: hidden;
                 margin-bottom: 2rem;
+                letter-spacing: 1px;
 
                 &:hover {
                     .text_en {
@@ -1176,7 +1181,7 @@ body {
                 position: absolute;
                 top: 50%;
                 left: 70%;
-                transform: translate(-30%,-50%);
+                transform: translate(-30%, -50%);
                 color: #fff;
                 opacity: 0.5;
                 font-size: 16rem;
@@ -1265,6 +1270,276 @@ body {
 }
 
 
+@media screen and (max-width: 1280px) {
+    .about_me {
+        .aboutme_wrap {
+            .about_info {
+
+                justify-content: center;
+                align-items: center;
+                gap: 4rem;
+
+                .about {
+
+                    align-items: center;
+                    width: 50% !important;
+
+                    .image {
+                        width: 35% !important;
+                    }
+                }
+
+                .education {
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .mind_section {
+        .text_mind {
+            top: 28rem !important;
+
+            p {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .image_mind {
+            width: 30% !important;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+    .main {
+        .main_visual {
+            .nav {
+                .gnb {
+                    gap: 8rem;
+                }
+            }
+        }
+
+        .about_me {
+            .aboutme_wrap {
+                .about_info {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4rem;
+
+                    .about {
+
+                        align-items: center;
+                        width: 100% !important;
+
+                        .image {
+                            width: 30% !important;
+                            margin-right: 5rem !important;
+                        }
+                    }
+
+                    .education {
+                        width: 100% !important;
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+
+
+                        h3 {
+                            font-size: 3rem;
+                            font-weight: 600;
+                            margin-bottom: 2rem;
+                            gap: 2rem;
+                        }
+
+                        .education_text {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2rem;
+                            margin-top: 2rem;
+
+                            .tx {
+                                display: flex;
+                                justify-content: center;
+                                gap: 2rem;
+
+                                span {
+                                    color: #ccc;
+                                    font-size: 2rem;
+                                }
+
+                                p {
+                                    font-size: 2rem;
+                                    font-weight: 400;
+                                    color: #eee;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .mind_section {
+            .text_mind {
+                top: 30rem !important;
+                z-index: 50;
+                p {
+                    height: 8rem;
+                }
+            }
+
+            .image_mind {
+                position: absolute;
+                z-index: 48;
+                right: 0;
+                width: 50% !important;
+
+                .image_wrap {
+                    .image {
+                        &.active {
+                            opacity: 0.7;
+                            background-color: #00000010;
+                            backdrop-filter: blur(30px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .main {
+        .main_visual {
+            .nav {
+                position: fixed;
+                left: auto;
+                right: 1rem;
+                bottom: auto;
+                top: 10%;
+                height: 4rem;
+                transform: translateY(-50%);
+                color: #ddd;
+                width: 10rem;
+
+                &.active {
+                    top: 10%;
+                }
+
+                .gnb {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5rem;
+
+                    li {
+                        font-size: 2rem;
+                    }
+                }
+
+            }
+        }
+
+        .about_me {
+            .aboutme_wrap {
+                top: 13% !important;
+
+                .gsap_text {
+                    padding: 0 5rem !important;
+                }
+            }
+        }
+
+        .mind_section {
+            height: 150rem;
+
+            .sticky_box {
+                flex-direction: column;
+
+                .text_mind {
+                    font-size: clamp(3.2rem, 5vw, 6.4rem);
+                }
+            }
+
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+
+        .about_me {
+            .aboutme_wrap {
+                top: 15% !important;
+
+                .about_info {
+                    .about {
+                        flex-direction: column;
+                        gap: 4rem;
+
+                        .image {
+                            margin-right: 0 !important;
+                        }
+
+                        .about_text {
+
+                            h3 {
+                                text-align: center;
+                            }
+
+                            .tx {
+                                justify-content: flex-start;
+
+
+                                p {
+                                    white-space: nowrap;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .gsap_text {
+                    padding: 0 !important;
+
+                    h2 {
+                        font-size: 2.4rem !important;
+                    }
+                }
+            }
+        }
+
+        .mind_section {
+            .text_mind p {
+                height: 7rem;
+            }
+
+            .image_mind {
+                width: 100% !important;
+
+                .image_wrap {
+                    .image {
+                        
+
+                        &.active {
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width: 500px) {
 
     .video_background {
@@ -1283,7 +1558,6 @@ body {
             height: 100%;
         }
 
-
     }
 
     .spaceship {
@@ -1296,46 +1570,27 @@ body {
 
     .main {
 
-        .main_visual {
+        .about_me {
 
-            .nav {
-                position: absolute;
-                left: 0;
-                bottom: 4rem;
-                height: 4rem;
-                transform: translateX(-50%);
-                color: #fff;
-
-                &.active {
-                    position: fixed;
-                    top: 3rem;
-                    z-index: 100;
-                }
-
-
-                .gnb {
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 15rem;
-
-
-                    li {
-                        font-size: 2.4rem;
-                        transition: 0.3s;
-
-                        &:hover {
-                            transform: scale(1.1);
-                            color: #00E0FF;
-
-                            span {
-                            }
+            .aboutme_wrap {
+                .about_info {
+                    .about {
+                        .image {
+                            width: 50% !important;
                         }
                     }
                 }
             }
+        }
 
+        .mind_section {
+            .text_mind {
+                p {
+                    height: 5rem;
+                }
+            }
+
+            
         }
     }
 }

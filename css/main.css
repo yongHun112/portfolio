@@ -192,6 +192,7 @@ body .inner {
   height: 4rem;
   transform: translateX(-50%);
   color: #fff;
+  z-index: 100;
 }
 .main .main_visual .nav.active {
   position: fixed;
@@ -207,6 +208,7 @@ body .inner {
 .main .main_visual .nav .gnb li {
   font-size: 2.4rem;
   transition: 0.3s;
+  white-space: nowrap;
 }
 .main .main_visual .nav .gnb li:hover {
   transform: scale(1.1);
@@ -310,13 +312,15 @@ body .inner {
 .main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 .main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx span {
   color: #ccc;
   font-size: 2rem;
+  white-space: nowrap;
 }
 .main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx p {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 400;
   color: #eee;
 }
@@ -356,7 +360,7 @@ body .inner {
   padding: 0 10rem;
 }
 .main .about_me .inner .aboutme_wrap .gsap_text h2 {
-  font-size: clamp(2rem, 3.75vw + 1.59rem, 3.2rem);
+  font-size: clamp(2rem, 5vw + 1.49rem, 3.2rem);
   font-weight: 600;
   line-height: 1.6;
   text-align: center;
@@ -383,7 +387,7 @@ body .inner {
   perspective: 800px;
 }
 .main .mind_section .text_mind {
-  font-size: 9rem;
+  font-size: clamp(4rem, 5vw, 9rem);
   font-weight: 700;
   color: #fff;
   transform-style: preserve-3d;
@@ -402,6 +406,7 @@ body .inner {
   line-height: 1;
   overflow: hidden;
   margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 .main .mind_section .text_mind p:hover .text_en {
   opacity: 0;
@@ -1019,6 +1024,180 @@ body .inner {
   padding-bottom: 2rem;
 }
 
+@media screen and (max-width: 1280px) {
+  .about_me .aboutme_wrap .about_info {
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .about_me .aboutme_wrap .about_info .about {
+    align-items: center;
+    width: 50% !important;
+  }
+  .about_me .aboutme_wrap .about_info .about .image {
+    width: 35% !important;
+  }
+  .about_me .aboutme_wrap .about_info .education {
+    align-items: center;
+  }
+  .mind_section .text_mind {
+    top: 28rem !important;
+  }
+  .mind_section .text_mind p {
+    margin-bottom: 0 !important;
+  }
+  .mind_section .image_mind {
+    width: 30% !important;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .main .main_visual .nav .gnb {
+    gap: 8rem;
+  }
+  .main .about_me .aboutme_wrap .about_info {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .about {
+    align-items: center;
+    width: 100% !important;
+  }
+  .main .about_me .aboutme_wrap .about_info .about .image {
+    width: 30% !important;
+    margin-right: 5rem !important;
+  }
+  .main .about_me .aboutme_wrap .about_info .education {
+    width: 100% !important;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .main .about_me .aboutme_wrap .about_info .education h3 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text .tx {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text .tx span {
+    color: #ccc;
+    font-size: 2rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text .tx p {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #eee;
+    text-align: center;
+  }
+  .main .mind_section .text_mind {
+    top: 30rem !important;
+    z-index: 50;
+  }
+  .main .mind_section .text_mind p {
+    height: 8rem;
+  }
+  .main .mind_section .image_mind {
+    position: absolute;
+    z-index: 48;
+    right: 0;
+    width: 50% !important;
+  }
+  .main .mind_section .image_mind .image_wrap .image.active {
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.062745098);
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+  }
+}
+@media screen and (max-width: 968px) {
+  .main .main_visual .nav {
+    position: fixed;
+    left: auto;
+    right: 1rem;
+    bottom: auto;
+    top: 10%;
+    height: 4rem;
+    transform: translateY(-50%);
+    color: #ddd;
+    width: 10rem;
+  }
+  .main .main_visual .nav.active {
+    top: 10%;
+  }
+  .main .main_visual .nav .gnb {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+  .main .main_visual .nav .gnb li {
+    font-size: 2rem;
+  }
+  .main .about_me .aboutme_wrap {
+    top: 13% !important;
+  }
+  .main .about_me .aboutme_wrap .gsap_text {
+    padding: 0 5rem !important;
+  }
+  .main .mind_section {
+    height: 150rem;
+  }
+  .main .mind_section .sticky_box {
+    flex-direction: column;
+  }
+  .main .mind_section .sticky_box .text_mind {
+    font-size: clamp(3.2rem, 5vw, 6.4rem);
+  }
+}
+@media screen and (max-width: 768px) {
+  .main .about_me .aboutme_wrap {
+    top: 15% !important;
+  }
+  .main .about_me .aboutme_wrap .about_info .about {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .main .about_me .aboutme_wrap .about_info .about .image {
+    margin-right: 0 !important;
+  }
+  .main .about_me .aboutme_wrap .about_info .about .about_text h3 {
+    text-align: center;
+  }
+  .main .about_me .aboutme_wrap .about_info .about .about_text .tx {
+    justify-content: flex-start;
+  }
+  .main .about_me .aboutme_wrap .about_info .about .about_text .tx p {
+    white-space: nowrap;
+  }
+  .main .about_me .aboutme_wrap .gsap_text {
+    padding: 0 !important;
+  }
+  .main .about_me .aboutme_wrap .gsap_text h2 {
+    font-size: 2.4rem !important;
+  }
+  .main .mind_section .text_mind p {
+    height: 7rem;
+  }
+  .main .mind_section .image_mind {
+    width: 100% !important;
+  }
+  .main .mind_section .image_mind .image_wrap .image.active {
+    opacity: 0.5;
+  }
+}
 @media screen and (max-width: 500px) {
   .video_background {
     position: fixed;
@@ -1041,33 +1220,11 @@ body .inner {
   .wrap {
     width: 100%;
   }
-  .main .main_visual .nav {
-    position: absolute;
-    left: 0;
-    bottom: 4rem;
-    height: 4rem;
-    transform: translateX(-50%);
-    color: #fff;
+  .main .about_me .aboutme_wrap .about_info .about .image {
+    width: 50% !important;
   }
-  .main .main_visual .nav.active {
-    position: fixed;
-    top: 3rem;
-    z-index: 100;
-  }
-  .main .main_visual .nav .gnb {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 15rem;
-  }
-  .main .main_visual .nav .gnb li {
-    font-size: 2.4rem;
-    transition: 0.3s;
-  }
-  .main .main_visual .nav .gnb li:hover {
-    transform: scale(1.1);
-    color: #00E0FF;
+  .main .mind_section .text_mind p {
+    height: 5rem;
   }
 }
 /* main end *//*# sourceMappingURL=main.css.map */
