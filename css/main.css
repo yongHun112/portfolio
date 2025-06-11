@@ -980,6 +980,7 @@ body .inner {
 }
 .footer .inner .footer_wrap .contact a:nth-child(1) {
   transition: 0.5s;
+  gap: 1rem;
 }
 .footer .inner .footer_wrap .contact a:nth-child(1)::after {
   display: none;
@@ -989,9 +990,23 @@ body .inner {
   transition: 0.7s;
   font-size: 4.2rem;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .inner .footer_wrap .contact a span img {
+  width: 5rem;
+  height: 5rem;
+  transition: 0.3s;
+}
+.footer .inner .footer_wrap .contact a span:first-child {
+  margin-left: 0;
 }
 .footer .inner .footer_wrap .contact a:hover {
   color: #00E0FF;
+}
+.footer .inner .footer_wrap .contact a:hover img {
+  transform: translateY(10px);
 }
 .footer .inner .footer_wrap .copy {
   width: 49%;

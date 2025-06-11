@@ -1207,6 +1207,7 @@ body {
 
                     &:nth-child(1) {
                         transition: 0.5s;
+                        gap: 1rem;
 
                         &::after {
                             display: none;
@@ -1218,11 +1219,27 @@ body {
                         transition: 0.7s;
                         font-size: 4.2rem;
                         color: #fff;
-                    }
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
 
+                        img {
+                            width: 5rem;
+                            height: 5rem;
+                            transition: 0.3s;
+                        }
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
 
                     &:hover {
                         color: #00E0FF;
+
+                        img {
+                            transform: translateY(10px);
+                        }
 
                     }
                 }
