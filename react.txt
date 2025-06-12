@@ -1,0 +1,7 @@
+powershell 창 
+
+npm init react-app 01-react
+
+cd - 파일명
+
+npm start
