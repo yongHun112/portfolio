@@ -121,7 +121,6 @@ body {
     transition: transform 4s ease-out;
     width: 10rem;
 
-
     img {
         width: 100%;
         object-fit: cover;
@@ -598,7 +597,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
+                z-index: 2;
 
 
                 .skills_image {
@@ -622,7 +621,7 @@ body {
                             opacity: 0.7;
 
                             &.active {
-                                transform: rotate(20deg);
+                                transform: rotateZ(50deg);
                                 opacity: 1;
                             }
 
@@ -761,11 +760,11 @@ body {
                             &::after {
                                 content: '';
                                 position: absolute;
-                                right: 0;
+                                right: 5%;
                                 bottom: 15%;
-                                width: 15%;
+                                width: 20%;
                                 height: 30%;
-                                background: url('../img/qr-code\(scott\ hamish\).png') center center / cover no-repeat;
+                                background: url('../img/scott_QR.jpeg') center center / cover no-repeat;
                             }
                         }
 
@@ -793,6 +792,12 @@ body {
                         width: 40%;
                         border-radius: 2rem;
                         overflow: hidden;
+                        transition: 0.3s;
+
+                        &:hover {
+                                transform: scale(1.1);
+
+                        }
 
                         img {
                             width: 100%;
@@ -974,7 +979,7 @@ body {
                     }
 
                     .text_box {
-                        border: 2px solid #fff;
+                        border: 2px solid #ffffff7e; 
                         width: 49.5%;
                         display: flex;
                         flex-direction: column;
@@ -988,7 +993,6 @@ body {
                             border: 2px solid #00e1ffbe;
                             box-shadow: inset 0 0 120px 10px #00e1ff5d;
                         }
-
 
                         .text_title {
                             display: flex;
@@ -1588,6 +1592,10 @@ body {
                 p {
                     height: 5rem;
                 }
+            }
+
+            .image_mind {
+                position: sticky;
             }
 
             

@@ -494,6 +494,7 @@ body .inner {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .main .skills .inner .skills_wrap .skills_image {
   width: 100%;
@@ -517,7 +518,7 @@ body .inner {
   opacity: 0.7;
 }
 .main .skills .inner .skills_wrap .skills_image .image_wrap img.active {
-  transform: rotate(20deg);
+  transform: rotateZ(50deg);
   opacity: 1;
 }
 .main .skills .inner .skills_wrap .skills_image .image_wrap img:nth-child(1) {
@@ -626,11 +627,11 @@ body .inner {
 .main .project .inner .project_wrap .project_box:nth-child(1) .text_box::after {
   content: "";
   position: absolute;
-  right: 0;
+  right: 5%;
   bottom: 15%;
-  width: 15%;
+  width: 20%;
   height: 30%;
-  background: url("../img/qr-code(scott hamish).png") center center/cover no-repeat;
+  background: url("../img/scott_QR.jpeg") center center/cover no-repeat;
 }
 .main .project .inner .project_wrap .project_box:nth-child(4) .text_box {
   position: relative;
@@ -648,6 +649,10 @@ body .inner {
   width: 40%;
   border-radius: 2rem;
   overflow: hidden;
+  transition: 0.3s;
+}
+.main .project .inner .project_wrap .project_box .image:hover {
+  transform: scale(1.1);
 }
 .main .project .inner .project_wrap .project_box .image img {
   width: 100%;
@@ -790,7 +795,7 @@ body .inner {
   order: 1;
 }
 .main .clone .inner .clone_wrap .clone_box .text_box {
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4941176471);
   width: 49.5%;
   display: flex;
   flex-direction: column;
@@ -1225,6 +1230,9 @@ body .inner {
   }
   .main .mind_section .text_mind p {
     height: 5rem;
+  }
+  .main .mind_section .image_mind {
+    position: sticky;
   }
 }
 /* main end *//*# sourceMappingURL=main.css.map */

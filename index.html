@@ -322,7 +322,7 @@
             /* 🛑🛑🛑🛑🛑project섹션 .이미지 rotateZ🛑🛑🛑🛑🛑 */
             gsap.fromTo('.project .inner .project_wrap .project_box',
                 {
-                    transform: 'rotateZ(20deg)',
+                    transform: 'rotateZ(0)  rotateX(90deg)',
                     opacity: 0,
                     z: -800,
                     scale: 0.8
@@ -330,11 +330,11 @@
                 {
                     scrollTrigger: {
                         trigger: '.project .project_wrap',
-                        start: 'top 80%',
-                        end: 'bottom center',
+                        start: 'top 55%',
+                        end: 'bottom 60%',
                         scrub: false,
                         toggleActions: 'play reverse play reverse',
-                        /*  markers: true   */
+                       /*  markers: true  */  
                     },
                     transform: 'rotateZ(0)',
                     z: 0,
@@ -364,7 +364,7 @@
             /* 🛑🛑🛑🛑🛑clone섹션 scollTrigger 효과🛑🛑🛑🛑🛑 */
             gsap.fromTo('.clone .inner .clone_wrap',
                 {
-                    transform: 'translateY(-10%)',
+                    transform: 'translateX(-50%)',
                     opacity: 0,
                     z: -800,
                     scale: 0.8
@@ -378,7 +378,7 @@
                         toggleActions: 'play reverse play reverse',
                         /*  markers: true   */
                     },
-                    transform: 'translateY(-10%)',
+                    transform: 'translateX(0)',
                     z: 0,
                     opacity: 1,
                     scale: 1,
