@@ -93,10 +93,10 @@
             /* 🛑🛑🛑🛑🛑background video scroll시 점점 어두워지는 효과🛑🛑🛑🛑🛑 */
             gsap.fromTo(".video_background",
                 {
-                    filter: 'brightness(1)'
+                    filter: 'brightness(0.5)'
                 },
                 {
-                    filter: 'brightness(0.2)',
+                    filter: 'brightness(1)',
                     ease: "none",
                     scrollTrigger: {
                         trigger: "body",
