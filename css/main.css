@@ -54,6 +54,7 @@ body .inner {
   top: 0;
   left: 0;
   z-index: 9999;
+  display: none;
 }
 .start.active {
   display: none;
@@ -74,6 +75,7 @@ body .inner {
   align-items: center;
   gap: 2rem;
   width: 90%;
+  padding: 0 24px;
 }
 .start .pop_up .pop_text p {
   font-size: 3.6rem;
@@ -226,19 +228,19 @@ body .inner {
 .main .main_visual .title_box .title {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(1rem, 1.5vw, 2rem);
   /* width: 100%; */
   font-family: "Heavitas";
   font-size: clamp(3.2rem, 6vw + 0.5rem, 9.6rem);
   color: #fff;
   transform-style: preserve-3d;
   transform: translateZ(-1100px);
-  transition: 1.5s;
   opacity: 0;
+  white-space: nowrap;
 }
 .main .main_visual .title_box .title span {
   white-space: nowrap;
-  font-size: clamp(6rem, 7vw + 1rem, 16rem);
+  font-size: clamp(5rem, 7vw + 1rem, 16rem);
   color: #00E0FF;
   mix-blend-mode: difference;
   -webkit-text-fill-color: rgba(193, 252, 245, 0.5);
@@ -281,11 +283,13 @@ body .inner {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .main .about_me .inner .aboutme_wrap .about_info .about {
   display: flex;
   justify-content: flex-end;
   width: 45%;
+  align-items: flex-start;
 }
 .main .about_me .inner .aboutme_wrap .about_info .about .image {
   width: 30%;
@@ -320,7 +324,7 @@ body .inner {
   white-space: nowrap;
 }
 .main .about_me .inner .aboutme_wrap .about_info .about .about_text .tx p {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
   font-weight: 400;
   color: #eee;
 }
@@ -1043,7 +1047,7 @@ body .inner {
     width: 35% !important;
   }
   .about_me .aboutme_wrap .about_info .education {
-    align-items: center;
+    /* align-items: center; */
   }
   .mind_section .text_mind {
     top: 28rem !important;
@@ -1101,7 +1105,7 @@ body .inner {
     font-size: 2rem;
   }
   .main .about_me .aboutme_wrap .about_info .education .education_text .tx p {
-    font-size: 2rem;
+    font-size: 1.6rem !important;
     font-weight: 400;
     color: #eee;
     text-align: center;
@@ -1173,6 +1177,7 @@ body .inner {
   }
   .main .about_me .aboutme_wrap .about_info .about {
     flex-direction: column;
+    align-items: center !important;
     gap: 4rem;
   }
   .main .about_me .aboutme_wrap .about_info .about .image {
@@ -1228,11 +1233,160 @@ body .inner {
   .main .about_me .aboutme_wrap .about_info .about .image {
     width: 50% !important;
   }
+  .main .about_me .aboutme_wrap .about_info .about .about_text .tx span {
+    width: 68px;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text .tx {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem !important;
+  }
+  .main .about_me .aboutme_wrap .about_info .education .education_text .tx span {
+    font-size: 1.4rem !important;
+  }
+  .main .about_me .aboutme_wrap .gsap_text h2 {
+    font-size: 1.8rem !important;
+  }
   .main .mind_section .text_mind p {
     height: 5rem;
   }
   .main .mind_section .image_mind {
     position: sticky;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img {
+    width: 8rem !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(1) {
+    left: 5% !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(2) {
+    top: 10% !important;
+    left: 5% !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(3) {
+    right: 5% !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(4) {
+    top: 54% !important;
+    left: 5% !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(5) {
+    top: 10% !important;
+    left: auto !important;
+    right: 5% !important;
+  }
+  .main .skills .skills_wrap .skills_image .image_wrap img:nth-child(6) {
+    top: 54% !important;
+    right: 5% !important;
+  }
+  .main .skills .skills_text {
+    width: 36% !important;
+  }
+  .main .skills .skills_text .text_wrap .text {
+    font-size: 16px !important;
+  }
+  .main .project .project_wrap .project_box {
+    flex-direction: column;
+    gap: 3rem !important;
+  }
+  .main .project .project_wrap .project_box .image {
+    width: 100% !important;
+  }
+  .main .project .project_wrap .project_box .text_box {
+    width: 100% !important;
+  }
+  .main .project .project_wrap .project_box .text_box::after {
+    display: none !important;
+  }
+  .main .project .project_wrap .project_box .text_box .title h3 {
+    font-size: 2.4rem !important;
+    white-space: nowrap;
+  }
+  .main .project .project_wrap .project_box .text_box .title p {
+    font-size: 1.8rem !important;
+    white-space: nowrap;
+  }
+  .main .project .project_wrap .project_box .text_box .cont {
+    gap: 2rem !important;
+  }
+  .main .project .project_wrap .project_box .text_box .cont .use_tool {
+    font-size: 1.4rem !important;
+  }
+  .main .project .project_wrap .project_box .text_box .cont .use_tool span {
+    margin-right: 1rem !important;
+  }
+  .main .project .project_wrap .project_box .text_box .cont .text {
+    font-size: 1.6rem !important;
+    word-break: break-all !important;
+  }
+  .main .project .project_wrap .project_box .text_box .cont .text p {
+    font-size: 1.4rem !important;
+  }
+  .main .project .project_wrap .project_box .text_box .button {
+    margin-top: 3rem !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  .main .clone .clone_wrap {
+    flex-direction: column;
+  }
+  .main .clone .clone_wrap .clone_box {
+    width: 100% !important;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_title h2 {
+    font-size: 2.4rem !important;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_cont {
+    margin-top: 1rem;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_cont p {
+    font-size: 1.6rem !important;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_btn {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_btn .text_info {
+    margin-top: 2rem;
+  }
+  .main .clone .clone_wrap .clone_box .text_box .text_btn .text_info li {
+    font-size: 1.4rem !important;
+  }
+  .main .design .design_wrap .design_box .design_image {
+    width: 50% !important;
+    height: auto;
+    aspect-ratio: 1.5/2;
+  }
+  .footer {
+    height: auto !important;
+  }
+  .footer .footer_wrap {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .footer .footer_wrap .contact {
+    gap: 3rem !important;
+    width: 100%;
+    height: auto !important;
+  }
+  .footer .footer_wrap .contact a {
+    font-size: 1.6rem !important;
+  }
+  .footer .footer_wrap .contact a span {
+    font-size: 2.4rem !important;
+  }
+  .footer .footer_wrap .contact a span img {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+  .footer .footer_wrap h2 {
+    font-size: 2.4rem !important;
+    position: static !important;
+    transform: none !important;
+  }
+  .footer .footer_wrap .copy {
+    width: 100% !important;
   }
 }
 /* main end *//*# sourceMappingURL=main.css.map */
