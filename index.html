@@ -2,1083 +2,548 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOON SPACE</title>
-    <link rel="stylesheet" href="css/main.scss">
-    <link rel="stylesheet" href="css/main.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis"></script>
-    <!--     <script src="lib/SplitText.min.js"></script> -->
-
-    <script>
-        window.onload = function () {
-
-            /* 🛑🛑🛑🛑🛑smooth scroll🛑🛑🛑🛑🛑 */
-            const lenis = new Lenis({
-                duration: 1.5,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smooth: true
-            });
-
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-
-            requestAnimationFrame(raf);
-
-            gsap.ticker.add(() => {
-                ScrollTrigger.update();
-            });
-
-
-            /* 🛑🛑🛑🛑🛑페이지 시작시 안내 문구 🛑🛑🛑🛑🛑 */
-            const startPage = document.querySelector('.start');
-            const popBtn = document.querySelector('.start .button');
-
-            popBtn.addEventListener('click', () => {
-                startPage.classList.add('active');
-            })
-
-
-
-            /* 🛑🛑🛑🛑🛑마우스 커서 따라다니는 우주선🛑🛑🛑🛑🛑 */
-            const spaceShip = document.querySelector('.spaceship');
-            document.addEventListener('mousemove', (e) => {
-
-                gsap.to(spaceShip, {
-                    x: e.clientX - 50, /* 중심 위치 보정 */
-                    y: e.clientY - 50,
-                    duration: 3,
-                    ease: "power3.out"
-                });
-            });
-
-
-            /* 🛑🛑🛑🛑🛑a 태그 scroll smooth🛑🛑🛑🛑🛑 */
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', e => {
-                    e.preventDefault();
-                    const targetId = anchor.getAttribute('href');
-                    const targetEl = document.querySelector(targetId);
-                    if (targetEl) {
-                        lenis.scrollTo(targetEl);
-                    }
-                });
-            });
-
-
-            /* 🛑🛑🛑🛑🛑background video scroll시 scale효과🛑🛑🛑🛑🛑 */
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.fromTo(".video_background",
-                {
-                    scale: 1 //시작값
-                },
-                {
-                    scale: 2,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "body",
-                        start: "10% top",
-                        end: "bottom top",
-                        scrub: 1,
-                        /* markers: true */
-                    }
-                }
-            );
-            /* 🛑🛑🛑🛑🛑background video scroll시 점점 어두워지는 효과🛑🛑🛑🛑🛑 */
-            gsap.fromTo(".video_background",
-                {
-                    filter: 'brightness(0.5)'
-                },
-                {
-                    filter: 'brightness(1)',
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "body",
-                        start: "10% top",
-                        end: "bottom top",
-                        scrub: 1,
-                        /* markers: true */
-                    }
-                }
-            );
-
-
-            /* 🛑🛑🛑🛑🛑header 스크롤 이벤트🛑🛑🛑🛑🛑 */
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                const nav = document.querySelector('.main_visual .nav');
-                console.log(scrollY);
-                if (scrollY > 800) {
-                    nav.classList.add('active');
-                } else {
-                    nav.classList.remove('active');
-                }
-            });
-
-
-            /* 🛑🛑🛑🛑🛑main_visual title 애니메이션🛑🛑🛑🛑🛑 */
-            gsap.set('.main_visual .title', {
-                z: -1100,
-                opacity: 0
-            });
-            gsap.to('.main_visual .title', {
-                z: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: 'none',
-            });
-            gsap.to('.main_visual .title span', {
-
-                'background-size': '100% 100%',
-                scale: 1.1,
-                rotationX: 1.2,
-                duration: 2,
-                ease: 'sine.inOut',
-                repeat: -1, /* 무한 반복 */
-                yoyo: true  /* 원상태 복귀 */
-            })
-
-
-            /* 🛑🛑🛑🛑🛑mind_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
-
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.fromTo('.mind_section .text_mind',
-                {
-                    z: -800,
-                    opacity: 0,
-                    scale: 0.8
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.mind_section',
-                        start: 'top 10%',
-                        end: 'bottom top',
-                        scrub: false,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    z: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.0,
-                    ease: 'none',
-                }
-            );
-
-
-            /* 🛑🛑🛑🛑🛑aboutme섹션 h2 scroll 효과🛑🛑🛑🛑🛑 */
-            ScrollTrigger.matchMedia({
-                // ✅ 모바일 (768px 이하)
-                "(max-width: 768px)": function () {
-                    gsap.fromTo('.about_me .inner .gsap_text h2',
-                        { 'background-size': '0% 100%' },
-                        {
-                            'background-size': '100% 100%',
-                            scrollTrigger: {
-                                trigger: '.about_me',
-                                pinnedContainer: '.about_me .inner',
-                                start: 'center 40%',
-                                end: 'bottom 80%',
-                                /* markers: true, */
-                                scrub: 1
-                            }
-                        }
-                    );
-                },
-
-                // ✅ 데스크탑 (501px 이상)
-                "(min-width: 501px)": function () {
-                    gsap.fromTo('.about_me .inner .gsap_text h2',
-                        { 'background-size': '0% 100%' },
-                        {
-                            'background-size': '100% 100%',
-                            scrollTrigger: {
-                                trigger: '.about_me',
-                                pinnedContainer: '.about_me .inner',
-                                start: 'top 10%',
-                                end: '50% 50%',
-                                /* markers: true, */
-                                scrub: 1
-                            }
-                        }
-                    );
-                }
-            });
-
-
-            /* 🛑🛑🛑🛑🛑mind_section .image등장 애니메이션🛑🛑🛑🛑🛑 */
-
-            gsap.fromTo('.mind_section .image_mind',
-                {
-                    z: -800,
-                    opacity: 0,
-                    scale: 0.8
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.mind_section',
-                        start: 'top 10%',
-                        end: 'bottom top',
-                        scrub: false,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    z: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.0,
-                    ease: 'none',
-                }
-            );
-
-
-            /* 🛑🛑🛑🛑🛑mind_section 이미지등장 애니메이션🛑🛑🛑🛑🛑 */
-
-            mindText = document.querySelectorAll('.mind_section .sticky_box .text_mind p');
-            mindImage = document.querySelectorAll('.mind_section .sticky_box .image_mind .image');
-
-            mindText.forEach((p, index) => {
-                p.addEventListener('mouseenter', () => {
-                    mindImage.forEach(img => img.classList.remove('active'));
-                    mindImage[index].classList.add('active');
-                });
-
-            })
-
-
-
-            /* 🛑🛑🛑🛑🛑skills_section .text등장 애니메이션🛑🛑🛑🛑🛑 */
-
-            gsap.set('.skills .title_skills', {
-                opacity: 0,
-                z: -800,
-                scale: 0.8
-            });
-
-            gsap.to('.skills .title_skills', {
-                scrollTrigger: {
-                    trigger: '.skills',
-                    start: 'top 20%',
-                    end: 'bottom center',
-                    scrub: false,
-                    toggleActions: 'play reverse play reverse',
-                    // markers: true
-                },
-                z: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: 'none'
-            });
-
-            gsap.set('.skills .skills_wrap', {
-                opacity: 0,
-                z: -800,
-                scale: 0.8
-            });
-
-            gsap.to('.skills .skills_wrap', {
-                scrollTrigger: {
-                    trigger: '.skills',
-                    start: 'top 20%',
-                    end: 'bottom center',
-                    scrub: false,
-                    toggleActions: 'play reverse play reverse',
-                    /* markers: true */
-                },
-                z: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: 'none'
-            });
-
-
-            /* 🛑🛑🛑🛑🛑skills_section .이미지 hover 시 텍스트 바뀜🛑🛑🛑🛑🛑 */
-            skillImage = document.querySelectorAll('.skills .skills_wrap .skills_image img');
-            skillText = document.querySelectorAll('.skills .skills_wrap .skills_text .text');
-
-            skillImage.forEach((img, index) => {
-                img.addEventListener('mouseenter', () => {
-                    img.classList.add('active');
-                    skillText[index].classList.add('active');
-                });
-
-                img.addEventListener('mouseleave', () => {
-                    img.classList.remove('active');
-                    skillText[index].classList.remove('active');
-                });
-            });
-
-
-            /* 🛑🛑🛑🛑🛑project섹션 .이미지 rotateZ🛑🛑🛑🛑🛑 */
-            gsap.fromTo('.project .inner .project_wrap .project_box',
-                {
-                    transform: 'rotateZ(0)  rotateX(90deg)',
-                    opacity: 0,
-                    z: -800,
-                    scale: 0.8
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.project .project_wrap',
-                        start: 'top 55%',
-                        end: 'bottom 60%',
-                        scrub: false,
-                        toggleActions: 'play reverse play reverse',
-                       /*  markers: true  */  
-                    },
-                    transform: 'rotateZ(0)',
-                    z: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: 'none',
-                }
-            );
-
-
-            /* 🛑🛑🛑🛑🛑clone섹션 .text mouseenter시  image opacity 1🛑🛑🛑🛑🛑 */
-            let cloneText = document.querySelectorAll('.clone .clone_wrap .text_box');
-            let cloneImage = document.querySelectorAll('.clone .clone_wrap .image_box');
-
-            cloneText.forEach((div, index) => {
-                div.addEventListener('mouseenter', () => {
-                    cloneImage[index].classList.add('active');
-                })
-
-                div.addEventListener('mouseleave', () => {
-                    cloneImage[index].classList.remove('active');
-                })
-            })
-
-
-            /* 🛑🛑🛑🛑🛑clone섹션 scollTrigger 효과🛑🛑🛑🛑🛑 */
-            gsap.fromTo('.clone .inner .clone_wrap',
-                {
-                    transform: 'translateX(-50%)',
-                    opacity: 0,
-                    z: -800,
-                    scale: 0.8
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.clone',
-                        start: 'top 20%',
-                        end: 'bottom center',
-                        scrub: false,
-                        toggleActions: 'play reverse play reverse',
-                        /*  markers: true   */
-                    },
-                    transform: 'translateX(0)',
-                    z: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: 'none',
-                }
-            );
-
-            /* 🛑🛑🛑🛑🛑그래픽디자인 scroll 효과🛑🛑🛑🛑🛑 */
-
-            gsap.fromTo('.design .design_wrap .img1',
-                {
-                    left: '50%',
-                    top: 0,
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: 'top 80%',
-                        end: '10% 40%',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    left: '20%',
-                    top: '10%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img2',
-                {
-                    left: '50%',
-                    top: 0,
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: 'top 80%',
-                        end: '10% 40%',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    left: '84%',
-                    top: '10%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img3',
-                {
-                    left: '50%',
-                    top: '30%',
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: '15% top',
-                        end: '45% center',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true  */
-                    },
-                    left: '20%',
-                    top: '35%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img4',
-                {
-                    left: '50%',
-                    top: '30%',
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: '15% 30%',
-                        end: '45% 40%',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    left: '84%',
-                    top: '35%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img5',
-                {
-                    left: '50%',
-                    top: '60%',
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: '40% top',
-                        end: '55% top',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    left: '20%',
-                    top: '60%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img6',
-                {
-                    left: '50%',
-                    top: '60%',
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: '40% top',
-                        end: '55% top',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    left: '84%',
-                    top: '60%',
-                    duration: 0.8,
-                    opacity: 0.9
-                }
-            );
-
-            gsap.fromTo('.design .design_wrap .img7',
-                {
-                    left: '50%',
-                    top: '20%',
-                    opacity: 0
-                },
-                {
-                    scrollTrigger: {
-                        trigger: '.design .design_wrap',
-                        start: 'top 80%',
-                        end: '30% top',
-                        scrub: 1,
-                        toggleActions: 'play reverse play reverse',
-                        /* markers: true */
-                    },
-                    duration: 0.5,
-                    opacity: 0.9
-                }
-            );
-
-
-
-
-        }   /* script end */
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOON SPACE</title>
+  <link rel="stylesheet" href="css/main.scss">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis"></script>
+  <script src="../portfolio-main/js/main.js"></script>
+  <!--     <script src="lib/SplitText.min.js"></script> -->
 </head>
 
 <body>
-    <div class="start">
-        <div class="pop_up">
-            <div class="pop_text">
-                <p>본 포트폴리오는 해상도 1920 X 1080에 최적화 되어 있습니다.<br />
-                </p>
-                <span> * 추후 반응형 작업 예정입니다.</span>
-            </div> <!-- pop_text end -->
-
-            <button class="button">닫기</button> <!-- button end -->
-        </div> <!-- pop_up end -->
-
-
-    </div> <!-- start end -->
-
-    <div class="spaceship"><img src="img/3d-rendering-universe-icon.png" alt="3D UFO이미지"></div>
-    <div class="video_background">
-        <video src="img/0_Earth_Night_1920x1080.mp4" autoplay muted loop></video>
-        <div class="filter"></div> <!-- 배경 opacity 조절 -->
-    </div> <!-- video_background end-->
-
-    <div class="wrap">
-        <header class="header">
-            <div class="inner">
-                <h1 class="logo"><a href="#"><span>@</span>.HOON</a></h1>
-                <p class="portfolio_text">2025 Portfolio</p>
-            </div> <!-- inner end -->
-        </header> <!-- heder end -->
-
-        <div class="main">
-            <section id="main_visual" class="section main_visual">
-                <nav class="nav">
-                    <ul class="gnb">
-                        <li><a href="#main_visual">Home</a></li>
-                        <li><a href="#about_me">About me</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#project">Project</a></li>
-                    </ul> <!-- gnb end -->
-                </nav> <!-- nav end -->
-                <div class="title_box">
-                    <h2 class="title">Welcome to<br /><span>HOON SPACE</span></h2>
-                </div> <!-- title_box end -->
-            </section> <!-- main_visual end -->
-
-            <section id="about_me" class="section about_me">
-                <div class="inner">
-                    <h2 class="title_aboutme">About me</h2> <!-- title_aboutme end   -->
-
-                    <div class="aboutme_wrap">
-                        <div class="about_info">
-                            <div class="about">
-                                <div class="image">
-                                    <img src="img/picture.jpg" alt="증명사진 이미지">
-                                </div> <!-- image end -->
-
-                                <div class="about_text">
-                                    <h3>ABOUT</h3>
-                                    <div class="tx name">
-                                        <span>NAME :</span>
-                                        <p>이용훈</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx birth">
-                                        <span>BIRTH :</span>
-                                        <p>2000. 01. 18</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx tel">
-                                        <span>TEL :</span>
-                                        <p>010 - 4653 - 7140</p>
-                                    </div> <!-- name end -->
-                                    <div class="tx email">
-                                        <span>EMAIL :</span>
-                                        <p>dyd3536@naver.com</p>
-                                    </div> <!-- name end -->
-                                </div> <!--about_text end  -->
-                            </div> <!-- about end -->
-
-                            <div class="education">
-                                <h3>EDUCATION</h3>
-
-                                <div class="education_text">
-                                    <div class="tx first">
-                                        <p>그린컴퓨터아카데미 UI/UX 반응형 웹 디자인 & 퍼블리셔</p>
-                                        <span>2025.01 ~ 2025.06</span>
-                                    </div> <!-- tx first end -->
-                                    <div class="tx second">
-                                        <p>동명대학교 디지털 콘텐츠학과</p>
-                                        <span>졸업 2025.02</span>
-                                    </div> <!-- tx first end -->
-                                    <div class="tx third">
-                                        <p>진주기계공업고등학교</p>
-                                        <span>졸업 2018.02</span>
-                                    </div> <!-- tx first end -->
-                                </div> <!-- education_text end -->
-                            </div> <!-- deducation end -->
-                        </div> <!-- about_info end -->
-
-                        <div class="gsap_text">
-                            <h2>제 포트폴리오의 배경은 우주에서 바라보는 지구입니다. 넓고 넓은 우주에서 항상 푸른빛을 내며 움직이는 모습이 제가 추구하는 방향성과 비슷하다고 생각해 선택하게
-                                되었습니다. 직무에서 항상 필요로 하는 든든한 사람이 되고 싶고 묵묵히 자기 할 일 열심히 하는 그런 사람이 될 것입니다.</h2>
-                        </div> <!-- gsap_text end -->
-                    </div> <!-- aboutme_wrap end -->
-                </div> <!-- inner end -->
-            </section> <!-- about_me end -->
-
-            <section class="section mind_section">
-                <div class="inner sticky_box">
-                    <h3 class="text_mind">
-                        <p><span class="text_en">I have always</span>
-                            <span class="text_ko">저는 <b>항상</b></span>
-                        </p>
-
-                        <p><span class="text_en">positive personality</span>
-                            <span class="text_ko"><b>긍정적인 성격</b>을 가지고</span>
-                        </p>
-
-                        <p><span class="text_en">responsibility for my duties</span>
-                            <span class="text_ko">맡은바에 <b>책임</b>을 가지며</span>
-                        </p>
-
-                        <p><span class="text_en">confidence for sincerity</span>
-                            <span class="text_ko"><b>성실히</b>임할 자신 있습니다.</span>
-                        </p>
-                    </h3> <!--text_mind end-->
-
-                    <div class="image_mind">
-                        <div class="image_wrap">
-
-                            <div class="image">
-                                <img src="img/image_1.jpg" alt="개인 이미지">
-                            </div> <!-- image end -->
-
-                            <div class="image">
-                                <img src="img/image_3.jpg" alt="가족 이미지">
-                            </div> <!-- image end -->
-
-                            <div class="image">
-                                <img src="img/image_4.jpg" alt="대학생활 이미지">
-                            </div> <!-- image end -->
-
-                            <div class="image">
-                                <img src="img/image_5.jpg" alt="대학생활 이미지2">
-                            </div> <!-- image end -->
-
-
-                        </div> <!-- image_wrap end -->
-                    </div> <!-- image end -->
-                </div> <!-- sticky_box end -->
-            </section> <!-- mind_section end -->
-
-            <section id="skills" class="section skills">
-                <div class="inner">
-                    <h2 class="title_skills">SKILLS</h2> <!-- skills -->
-
-                    <div class="skills_wrap">
-                        <div class="skills_image">
-                            <div class="image_wrap">
-                                <img src="img/HTML_image.png" alt="html이미지">
-                                <img src="img/CSS_image.png" alt="css이미지">
-                                <img src="img/SCSS_image.png" alt="scss이미지">
-                                <img src="img/JS_image.png" alt="js이미지">
-                                <img src="img/JQUERY_image.png" alt="jquery이미지">.
-                                <img src="img/FIGMA_image.png" alt="figma이미지">
-                                <img src="img/adobe-photoshop.png" alt="photoshop이미지">
-                                <img src="img/adobe-illustrator.png" alt="illustarator이미지">
-                            </div> <!-- image_wrap end -->
-                        </div> <!-- skills_image end -->
-
-                        <div class="skills_text">
-                            <div class="text_wrap">
-                                <p class="text html">전체적인 웹 구조를 이해하고, 시멘틱 태그로 웹 표준과 접근성을 준수하여 작성할 수 있습니다.</p>
-                                <p class="text css">클래스와 아이디를 적극 활용하며 여러 단위들을 사용하여 효율적인 반응형 디자인을 제작할 수 있습니다.</p>
-                                <p class="text scss">중첩되는 선택자로 가독성을 높일 수 있고, 유지보수에 원활함이 있어 적극 사용 가능합니다.</p>
-                                <p class="text js">클릭과 hover 및 스크롤 이벤트 등 동적 기능과 라이브러리 활용하여 인터랙션한 화면 구현이 가능합니다.</p>
-                                <p class="text jquery">이벤트 동작과 애니메이션 기능을 활용한 동적 화면을 제작 가능합니다.</p>
-                                <p class="text figma">웹사이트 와이어 프레임 구조 제작 및 프로토타입 구현 할 수 있습니다.</p>
-                                <p class="text photoshop">웹사이트 와이어 프레임 구조 및 이벤트 포스터등 을 제작할 수 있습니다.</p>
-                                <p class="text illustrator">카드 뉴스 및 그래픽 디자인을 제작할 수 있습니다.</p>
-                            </div> <!-- text_wrap end -->
-                        </div> <!-- skills_text end -->
-                    </div> <!-- skills_wrap -->
-                </div> <!-- inner end -->
-            </section> <!-- section skills end -->
-
-            <section id="project" class="section project">
-                <div class="inner">
-                    <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
-
-                    <div class="project_wrap">
-                        <div class="project_box">
-
-                            <div class="image">
-                                <img src="img/Group 202.png" alt="스콧해미쉬 목업이미지"></a>
-                            </div> <!-- image end -->
-                            <div class="text_box">
-                                <div class="title">
-                                    <h3>Scott Hamish</h3>
-                                    <p>메인페이지, 상품페이지</p>
-                                </div> <!-- title end -->
-
-                                <div class="cont">
-
-                                    <p class="use_tool">
-                                        <span>#figma</span>
-                                        <span>#html5</span>
-                                        <span>#scss</span>
-                                        <span>#javascript</span>
-                                        <span>#gsap</span>
-                                    </p> <!-- use_tool  end-->
-
-                                    <div class="text">
-                                        남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
-                                        생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
-                                        <p>기획 / 디자인 / 퍼블리싱 / <span>반응형 100%</span></p>
-                                    </div> <!-- text end -->
-                                </div> <!-- cont end -->
-                                <div class="button">
-                                    <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
-                                    <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/scott-hemish/process/scotthamish_process.pdf"
-                                        target="_blank">process</a>
-                                    <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0"
-                                        target="_blank">figma</a>
-                                </div> <!-- button end -->
-                            </div> <!-- text_box end    -->
-                        </div> <!-- project_box end -->
-                        <div class="project_box">
-
-                            <div class="image">
-                                <img src="img/mokup2.png" alt="모나용평 목업이미지"></a>
-                            </div> <!-- image end -->
-                            <div class="text_box">
-                                <div class="title">
-                                    <h3>MONA YONGPYONG</h3>
-                                    <p>메인페이지</p>
-                                </div> <!-- title end -->
-
-                                <div class="cont">
-
-                                    <p class="use_tool">
-                                        <span>#figma</span>
-                                        <span>#html5</span>
-                                        <span>#css3</span>
-                                        <span>#javascript</span>
-                                        <span>#swiper-js</span>
-                                        <span>#AOS</span>
-                                    </p> <!-- use_tool  end-->
-
-                                    <div class="text">종합리조트 브랜드인 모나용평 홈페이지 리뉴얼입니다. 대표 이미지인 발왕산을
-                                        바탕으로 한 이미지들과 남녀노소 어렵지 않게 홈페이지를 이용할 수 있도록 전체적으로 크고 한눈에 알기 쉬운 디자인으로
-                                        제작하였습니다.
-
-                                        <p>기획 / 디자인 / 퍼블리싱 100%</p>
-                                    </div> <!-- text end -->
-                                </div> <!-- cont end -->
-                                <div class="button">
-                                    <a href="https://yonghun112.github.io/MONA-YONG-PYONG/" target="_blank">website</a>
-                                    <a href="https://github.com/yongHun112/MONA-YONG-PYONG" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/MONA-YONG-PYONG/process/모나용평_process.pdf"
-                                        target="_blank">process</a>
-                                    <a href="https://www.figma.com/design/QZL6IaEWqy4e7qkkUOobx6/%EB%AA%A8%EB%82%98-%EC%9A%A9%ED%8F%89-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=226-138&p=f&t=xstJ7BXEgKB2agiQ-0"
-                                        target="_blank">figma</a>
-                                </div> <!-- button end -->
-                            </div> <!-- text_box end    -->
-                        </div> <!-- project_box end -->
-                        <div class="project_box">
-
-                            <div class="image">
-                                <img src="img/mocup1.png" alt="테일러메이드 목업이미지"></a>
-                            </div> <!-- image end -->
-                            <div class="text_box">
-                                <div class="title">
-                                    <h3>TaylorMade</h3>
-                                    <p>메인페이지</p>
-                                </div> <!-- title end -->
-
-                                <div class="cont">
-
-                                    <p class="use_tool">
-                                        <span>#photoshop</span>
-                                        <span>#html5</span>
-                                        <span>#css3</span>
-                                        <span>#javascript</span>
-                                        <span>#swiper-js</span>
-                                        <span>#AOS</span>
-                                    </p> <!-- use_tool  end-->
-
-                                    <div class="text">골프웨어 및 장비 브랜드인 테일러메이드 홈페이지 리뉴얼입니다. 브랜드 색상에 맞춘
-                                        전체적인 분위기와 한층 더 고급스러움을 주고 동적인 디자인을 고려해 디자인과 제작을 하였습니다.
-
-                                        <p>기획 / 디자인 / 퍼블리싱 100%</p>
-                                    </div> <!-- text end -->
-                                </div> <!-- cont end -->
-                                <div class="button">
-                                    <a href="https://yonghun112.github.io/taylorMade/" target="_blank">website</a>
-                                    <a href="https://github.com/yongHun112/taylorMade" target="_blank">github</a>
-                                    <a href="https://yonghun112.github.io/taylorMade/process/테일러메이드_process.pdf"
-                                        target="_blank">process</a>
-                                </div> <!-- button end -->
-                            </div> <!-- text_box end    -->
-                        </div> <!-- project_box end -->
-                        <div class="project_box">
-
-                            <div class="image">
-                                <img src="img/iPhone 16 Pro.png" alt="다이닝코드  목업이미지"></a>
-                            </div> <!-- image end -->
-                            <div class="text_box">
-                                <div class="title">
-                                    <h3>다이닝코드</h3>
-                                    <p>메인페이지, 상세페이지, 마이페이지</p>
-                                </div> <!-- title end -->
-
-                                <div class="cont">
-
-                                    <p class="use_tool">
-                                        <span>#figma</span>
-                                    </p> <!-- use_tool  end-->
-
-                                    <div class="text">
-                                        빅데이터를 활용하여 국내 전국 맛집을 알려주는 다이닝코드 앱 리뉴얼입니다. 메인페이지에 여러 아이콘들과 탭을 추가하며 가독성을 높이고,
-                                        포인트컬러를 사용해 전체적으로 깔끔한 느낌을 주는 디자인으로 제작하였습니다.
-                                        <p>기획 / 디자인 / 100%</p>
-                                    </div> <!-- text end -->
-                                </div> <!-- cont end -->
-                                <div class="button">
-                                    <a href="https://www.figma.com/proto/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=2-9&p=f&t=5uREYHI9QbJhooua-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=252%3A808&show-proto-sidebar=1"
-                                        target="_blank">prototype</a>
-                                    <a href="https://yonghun112.github.io/portfolio/process/다이닝코드_process.pdf"
-                                        target="_blank">process</a>
-                                    <a href="https://www.figma.com/design/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=0-1&p=f&t=IOvhCDM5chSxoM73-0"
-                                        target="_blank">figma</a>
-                                </div> <!-- button end -->
-                            </div> <!-- text_box end    -->
-                        </div> <!-- project_box end -->
-
-                    </div> <!-- project_wrap end -->
-                </div> <!-- inner end -->
-            </section> <!-- section project end -->
-
-            <section class="section clone">
-                <div class="inner">
-                    <h2 class="title_clone">CLONE</h2>
-
-                    <div class="clone_wrap">
-                        <div class="clone_box first">
-                            <div class="text_box">
-                                <div class="text_title">
-                                    <h2>Zlgoon</h2>
-                                    <span></span>
-                                </div> <!-- text_title end -->
-
-                                <div class="text_cont">
-                                    <p>모바일 쿠폰 제작 즐거운 홈페이지 클론코딩을 통해 <span>애니메이션 효과</span>를 습득 했습니다.</p>
-                                </div> <!-- text_cont end -->
-
-                                <div class="text_btn">
-                                    <a href="https://yonghun112.github.io/zlgoon/" target="_blank">website</a>
-
-                                    <ul class="text_info">
-                                        <li>HTML,</li>
-                                        <li>CSS,</li>
-                                        <li>JS,</li>
-                                        <li>swiper.js</li>
-                                    </ul> <!-- text_info end -->
-                                </div> <!-- text_btn end -->
-                            </div> <!-- text_box end -->
-
-                            <div class="image_box">
-                                <img src="img/Zlgoon_mokup.png" alt="즐거운 목업이미지">
-                            </div> <!-- image_box end -->
-                        </div> <!-- clone_box first end -->
-
-                        <div class="clone_box second">
-                            <div class="text_box">
-                                <div class="text_title">
-                                    <h2>Skelter Labs</h2>
-                                </div> <!-- text_title end -->
-
-                                <div class="text_cont">
-                                    <p>AI기반 서비스 스켈터랩스 홈페이지를 클론코딩을 통해 <span>구조화 작업</span>을 이해하고 활용할 수
-                                        있습니다.</p>
-                                </div> <!-- text_cont end -->
-
-                                <div class="text_btn">
-                                    <a href="https://yonghun112.github.io/skelterlabs-clone/"
-                                        target="_blank">website</a>
-
-                                    <ul class="text_info">
-                                        <li>HTML,</li>
-                                        <li>CSS,</li>
-                                        <li>JS,</li>
-                                        <li>swiper.js</li>
-                                    </ul> <!-- text_info end -->
-                                </div> <!-- text_btn end -->
-                            </div> <!-- text_box end -->
-
-                            <div class="image_box">
-                                <img src="img/SkelterLabs_mokup.png" alt="스켈터랩스 목업이미지">
-                            </div> <!-- image_box end -->
-                        </div> <!-- clone_box second end -->
-
-                        <div class="clone_box third">
-                            <div class="text_box">
-                                <div class="text_title">
-                                    <h2>Robotori Edu</h2>
-                                    <span></span>
-                                </div> <!-- text_title end -->
-
-                                <div class="text_cont">
-                                    <p>교육 프로그램 로보토리에듀 홈페이지 클론코딩을 통해 <span>자바스크립트</span>의 여러 기능을 습득하여 활용할 수 있습니다. </p>
-                                </div> <!-- text_cont end -->
-
-                                <div class="text_btn">
-                                    <a href="https://yonghun112.github.io/robotoriedu/" target="_blank">website</a>
-
-                                    <ul class="text_info">
-                                        <li>HTML,</li>
-                                        <li>CSS,</li>
-                                        <li>JS</li>
-                                    </ul> <!-- text_info end -->
-                                </div> <!-- text_btn end -->
-                            </div> <!-- text_box end -->
-
-                            <div class="image_box">
-                                <img src="img/robotori_edu mokup.png" alt="로보토리에듀 목업이미지">
-                            </div> <!-- image_box end -->
-                        </div> <!-- clone_box third end -->
-
-                        <div class="clone_box fourth">
-                            <div class="text_box">
-                                <div class="text_title">
-                                    <h2>Palette</h2>
-                                    <span>반응형</span>
-                                </div> <!-- text_title end -->
-
-                                <div class="text_cont">
-                                    <p>예술과 AI가 만난 팔레트 홈페이지 클론코딩을 통해 <span>gsap</span>과 여러 <span>텍스트 효과</span>를 활용할 수
-                                        있습니다.
-                                    </p>
-                                </div> <!-- text_cont end -->
-
-                                <div class="text_btn">
-                                    <a href="https://yonghun112.github.io/palette-clone/" target="_blank">website</a>
-
-                                    <ul class="text_info">
-                                        <li>HTML,</li>
-                                        <li>CSS,</li>
-                                        <li>JS,</li>
-                                        <li>GSAP</li>
-                                    </ul> <!-- text_info end -->
-                                </div> <!-- text_btn end -->
-                            </div> <!-- text_box end -->
-
-                            <div class="image_box">
-                                <img src="img/palette_mokup.png" alt="팔레트 목업이미지">
-                            </div> <!-- image_box end -->
-                        </div> <!-- clone_box fourth end -->
-
-                    </div> <!-- clone_wrap end -->
-                </div> <!-- inner end -->
-            </section> <!-- clone end -->
-
-            <section class="section design">
-                <div class="inner">
-                    <h2 class="title_design">DESIGN</h2> <!-- title_design end -->
-
-                    <div class="design_wrap">
-                        <div class="design_box">
-                            <div class="design_image img1">
-                                <img src="img/유리배경-아이스크림.png" alt="유리배경-아이스크림 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img2">
-                                <img src="img/플라스틱 다이어트 방법.png" alt="플라스틱 다이어트 방법 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img3">
-                                <img src="img/수딩크림.png" alt="수당크림 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img4">
-                                <img src="img/신혼부부 최애템.png" alt="신혼부부 최애템 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img5">
-                                <img src="img/유럽.png" alt="유럽 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img6">
-                                <img src="img/Untitled-2.png" alt="일러스트 이미지">
-                            </div> <!-- design_image end -->
-
-                            <div class="design_image img7">
-                                <img src="img/Untitled-sdss.jpg" alt="일러스트 이미지2">
-                            </div> <!-- design_image end -->
-                        </div> <!-- design_box end -->
-                    </div> <!-- design_wrap end -->
-                </div> <!-- inner end -->
-            </section> <!-- design end -->
-        </div> <!-- main end -->
-
-        <footer class="footer">
-            <div class="inner">
-                <div class="footer_wrap">
-                    <div class="contact">
-
-                        <a href="process/이용훈_Portfolio.pdf" target="_blank">Portfolio PDF
-                            <span><img src="img/download.png" alt="다운로드_아이콘"></span>
-                        </a>
-
-                        <a href="https://github.com/yongHun112?tab=repositories" target="_blank">Github</a>
-
-                        <a href="#">Email
-                            <span>dyd3536@naver.com</span>
-                        </a>
-
-                        <a href="#">Tel
-                            <span>010 - 4653 - 7140</span>
-                        </a>
-
-                    </div> <!-- contact end -->
-
-                    <div class="copy">
-                        <h2>
-                            ⓒLEE<br /> YONGHUN
-                        </h2>
-                        Copyrightⓒ2025.Yonghun Lee.All rights reserved.
-                    </div>
-                </div> <!-- footer_wrap end -->
-            </div> <!-- inner end -->
-        </footer> <!-- footer end -->
-    </div> <!-- wrap end -->.
+  <div class="start">
+    <div class="pop_up">
+      <div class="pop_text">
+        <p>본 포트폴리오는 해상도 1920 X 1080에 최적화 되어 있습니다.<br />
+        </p>
+        <span> * 추후 반응형 작업 예정입니다.</span>
+      </div> <!-- pop_text end -->
+
+      <button class="button">닫기</button> <!-- button end -->
+    </div> <!-- pop_up end -->
+
+
+  </div> <!-- start end -->
+
+  <div class="spaceship"><img src="img/3d-rendering-universe-icon.png" alt="3D UFO이미지"></div>
+  <div class="video_background">
+    <video src="img/0_Earth_Night_1920x1080.mp4" autoplay muted loop></video>
+    <div class="filter"></div> <!-- 배경 opacity 조절 -->
+  </div> <!-- video_background end-->
+
+  <div class="wrap">
+    <header class="header">
+      <div class="inner">
+        <h1 class="logo"><a href="#"><span>@</span>.HOON</a></h1>
+        <p class="portfolio_text">2025 Portfolio</p>
+      </div> <!-- inner end -->
+    </header> <!-- heder end -->
+
+    <div class="main">
+      <section id="main_visual" class="section main_visual">
+        <nav class="nav">
+          <ul class="gnb">
+            <li><a href="#main_visual">Home</a></li>
+            <li><a href="#about_me">About me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Project</a></li>
+          </ul> <!-- gnb end -->
+        </nav> <!-- nav end -->
+        <div class="title_box">
+          <h2 class="title">Welcome to<br /><span>HOON SPACE</span></h2>
+        </div> <!-- title_box end -->
+      </section> <!-- main_visual end -->
+
+      <section id="about_me" class="section about_me">
+        <div class="inner">
+          <h2 class="title_aboutme">About me</h2> <!-- title_aboutme end   -->
+
+          <div class="aboutme_wrap">
+            <div class="about_info">
+              <div class="about">
+                <div class="image">
+                  <img src="img/picture.jpg" alt="증명사진 이미지">
+                </div> <!-- image end -->
+
+                <div class="about_text">
+                  <h3>ABOUT</h3>
+                  <div class="tx name">
+                    <span>NAME :</span>
+                    <p>이용훈</p>
+                  </div> <!-- name end -->
+                  <div class="tx birth">
+                    <span>BIRTH :</span>
+                    <p>2000. 01. 18</p>
+                  </div> <!-- name end -->
+                  <div class="tx tel">
+                    <span>TEL :</span>
+                    <p>010 - 4653 - 7140</p>
+                  </div> <!-- name end -->
+                  <div class="tx email">
+                    <span>EMAIL :</span>
+                    <p>dyd3536@naver.com</p>
+                  </div> <!-- name end -->
+                </div> <!--about_text end  -->
+              </div> <!-- about end -->
+
+              <div class="education">
+                <h3>EDUCATION</h3>
+
+                <div class="education_text">
+                  <div class="tx first">
+                    <p>그린컴퓨터아카데미 UI/UX 반응형 웹 디자인 & 퍼블리셔</p>
+                    <span>2025.01 ~ 2025.06</span>
+                  </div> <!-- tx first end -->
+                  <div class="tx second">
+                    <p>동명대학교 디지털 콘텐츠학과</p>
+                    <span>졸업 2025.02</span>
+                  </div> <!-- tx first end -->
+                  <div class="tx third">
+                    <p>진주기계공업고등학교</p>
+                    <span>졸업 2018.02</span>
+                  </div> <!-- tx first end -->
+                </div> <!-- education_text end -->
+              </div> <!-- deducation end -->
+            </div> <!-- about_info end -->
+
+            <div class="gsap_text">
+              <h2>제 포트폴리오의 배경은 우주에서 바라보는 지구입니다. 넓고 넓은 우주에서 항상 푸른빛을 내며 움직이는 모습이 제가 추구하는 방향성과 비슷하다고 생각해 선택하게
+                되었습니다. 직무에서 항상 필요로 하는 든든한 사람이 되고 싶고 묵묵히 자기 할 일 열심히 하는 그런 사람이 될 것입니다.</h2>
+            </div> <!-- gsap_text end -->
+          </div> <!-- aboutme_wrap end -->
+        </div> <!-- inner end -->
+      </section> <!-- about_me end -->
+
+      <section class="section mind_section">
+        <div class="inner sticky_box">
+          <h3 class="text_mind">
+            <p><span class="text_en">I have always</span>
+              <span class="text_ko">저는 <b>항상</b></span>
+            </p>
+
+            <p><span class="text_en">positive personality</span>
+              <span class="text_ko"><b>긍정적인 성격</b>을 가지고</span>
+            </p>
+
+            <p><span class="text_en">responsibility for my duties</span>
+              <span class="text_ko">맡은바에 <b>책임</b>을 가지며</span>
+            </p>
+
+            <p><span class="text_en">confidence for sincerity</span>
+              <span class="text_ko"><b>성실히</b>임할 자신 있습니다.</span>
+            </p>
+          </h3> <!--text_mind end-->
+
+          <div class="image_mind">
+            <div class="image_wrap">
+
+              <div class="image">
+                <img src="img/image_1.jpg" alt="개인 이미지">
+              </div> <!-- image end -->
+
+              <div class="image">
+                <img src="img/image_3.jpg" alt="가족 이미지">
+              </div> <!-- image end -->
+
+              <div class="image">
+                <img src="img/image_4.jpg" alt="대학생활 이미지">
+              </div> <!-- image end -->
+
+              <div class="image">
+                <img src="img/image_5.jpg" alt="대학생활 이미지2">
+              </div> <!-- image end -->
+
+
+            </div> <!-- image_wrap end -->
+          </div> <!-- image end -->
+        </div> <!-- sticky_box end -->
+      </section> <!-- mind_section end -->
+
+      <section id="skills" class="section skills">
+        <div class="inner">
+          <h2 class="title_skills">SKILLS</h2> <!-- skills -->
+
+          <div class="skills_wrap">
+            <div class="skills_image">
+              <div class="image_wrap">
+                <img src="img/HTML_image.png" alt="html이미지">
+                <img src="img/CSS_image.png" alt="css이미지">
+                <img src="img/SCSS_image.png" alt="scss이미지">
+                <img src="img/JS_image.png" alt="js이미지">
+                <img src="img/JQUERY_image.png" alt="jquery이미지">.
+                <img src="img/FIGMA_image.png" alt="figma이미지">
+                <img src="img/adobe-photoshop.png" alt="photoshop이미지">
+                <img src="img/adobe-illustrator.png" alt="illustarator이미지">
+              </div> <!-- image_wrap end -->
+            </div> <!-- skills_image end -->
+
+            <div class="skills_text">
+              <div class="text_wrap">
+                <p class="text html">전체적인 웹 구조를 이해하고, 시멘틱 태그로 웹 표준과 접근성을 준수하여 작성할 수 있습니다.</p>
+                <p class="text css">클래스와 아이디를 적극 활용하며 여러 단위들을 사용하여 효율적인 반응형 디자인을 제작할 수 있습니다.</p>
+                <p class="text scss">중첩되는 선택자로 가독성을 높일 수 있고, 유지보수에 원활함이 있어 적극 사용 가능합니다.</p>
+                <p class="text js">클릭과 hover 및 스크롤 이벤트 등 동적 기능과 라이브러리 활용하여 인터랙션한 화면 구현이 가능합니다.</p>
+                <p class="text jquery">이벤트 동작과 애니메이션 기능을 활용한 동적 화면을 제작 가능합니다.</p>
+                <p class="text figma">웹사이트 와이어 프레임 구조 제작 및 프로토타입 구현 할 수 있습니다.</p>
+                <p class="text photoshop">웹사이트 와이어 프레임 구조 및 이벤트 포스터등 을 제작할 수 있습니다.</p>
+                <p class="text illustrator">카드 뉴스 및 그래픽 디자인을 제작할 수 있습니다.</p>
+              </div> <!-- text_wrap end -->
+            </div> <!-- skills_text end -->
+          </div> <!-- skills_wrap -->
+        </div> <!-- inner end -->
+      </section> <!-- section skills end -->
+
+      <section id="project" class="section project">
+        <div class="inner">
+          <h2 class="title_project">PROJECT</h2> <!-- title_project end -->
+
+          <div class="project_wrap">
+            <div class="project_box">
+
+              <div class="image">
+                <img src="img/Group 202.png" alt="스콧해미쉬 목업이미지"></a>
+              </div> <!-- image end -->
+              <div class="text_box">
+                <div class="title">
+                  <h3>Scott Hamish</h3>
+                  <p>메인페이지, 상품페이지</p>
+                </div> <!-- title end -->
+
+                <div class="cont">
+
+                  <p class="use_tool">
+                    <span>#figma</span>
+                    <span>#html5</span>
+                    <span>#scss</span>
+                    <span>#javascript</span>
+                    <span>#gsap</span>
+                  </p> <!-- use_tool  end-->
+
+                  <div class="text">
+                    남성의 화장품인 스콧해미쉬 홈페이지 리뉴얼입니다. 기존 정적이고 무난한 디자인을 요즘 트렌드에 맞게
+                    생동감 있는 애니메이션과 세련되고 고급스러운 느낌이 날 수 있는 디자인으로 제작하였습니다.
+                    <p>기획 / 디자인 / 퍼블리싱 / <span>반응형 100%</span></p>
+                  </div> <!-- text end -->
+                </div> <!-- cont end -->
+                <div class="button">
+                  <a href="https://yonghun112.github.io/scott-hemish/" target="_blank">website</a>
+                  <a href="https://github.com/yongHun112/scott-hemish" target="_blank">github</a>
+                  <a href="https://yonghun112.github.io/scott-hemish/process/scotthamish_process.pdf"
+                    target="_blank">process</a>
+                  <a href="https://www.figma.com/design/Df36SokaYj6K8DikzVnU7M/scotthamish?node-id=0-1&p=f&t=H1l2UuJtMrQJqAkS-0"
+                    target="_blank">figma</a>
+                </div> <!-- button end -->
+              </div> <!-- text_box end    -->
+            </div> <!-- project_box end -->
+            <div class="project_box">
+
+              <div class="image">
+                <img src="img/mokup2.png" alt="모나용평 목업이미지"></a>
+              </div> <!-- image end -->
+              <div class="text_box">
+                <div class="title">
+                  <h3>MONA YONGPYONG</h3>
+                  <p>메인페이지</p>
+                </div> <!-- title end -->
+
+                <div class="cont">
+
+                  <p class="use_tool">
+                    <span>#figma</span>
+                    <span>#html5</span>
+                    <span>#css3</span>
+                    <span>#javascript</span>
+                    <span>#swiper-js</span>
+                    <span>#AOS</span>
+                  </p> <!-- use_tool  end-->
+
+                  <div class="text">종합리조트 브랜드인 모나용평 홈페이지 리뉴얼입니다. 대표 이미지인 발왕산을
+                    바탕으로 한 이미지들과 남녀노소 어렵지 않게 홈페이지를 이용할 수 있도록 전체적으로 크고 한눈에 알기 쉬운 디자인으로
+                    제작하였습니다.
+
+                    <p>기획 / 디자인 / 퍼블리싱 100%</p>
+                  </div> <!-- text end -->
+                </div> <!-- cont end -->
+                <div class="button">
+                  <a href="https://yonghun112.github.io/MONA-YONG-PYONG/" target="_blank">website</a>
+                  <a href="https://github.com/yongHun112/MONA-YONG-PYONG" target="_blank">github</a>
+                  <a href="https://yonghun112.github.io/MONA-YONG-PYONG/process/모나용평_process.pdf"
+                    target="_blank">process</a>
+                  <a href="https://www.figma.com/design/QZL6IaEWqy4e7qkkUOobx6/%EB%AA%A8%EB%82%98-%EC%9A%A9%ED%8F%89-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=226-138&p=f&t=xstJ7BXEgKB2agiQ-0"
+                    target="_blank">figma</a>
+                </div> <!-- button end -->
+              </div> <!-- text_box end    -->
+            </div> <!-- project_box end -->
+            <div class="project_box">
+
+              <div class="image">
+                <img src="img/mocup1.png" alt="테일러메이드 목업이미지"></a>
+              </div> <!-- image end -->
+              <div class="text_box">
+                <div class="title">
+                  <h3>TaylorMade</h3>
+                  <p>메인페이지</p>
+                </div> <!-- title end -->
+
+                <div class="cont">
+
+                  <p class="use_tool">
+                    <span>#photoshop</span>
+                    <span>#html5</span>
+                    <span>#css3</span>
+                    <span>#javascript</span>
+                    <span>#swiper-js</span>
+                    <span>#AOS</span>
+                  </p> <!-- use_tool  end-->
+
+                  <div class="text">골프웨어 및 장비 브랜드인 테일러메이드 홈페이지 리뉴얼입니다. 브랜드 색상에 맞춘
+                    전체적인 분위기와 한층 더 고급스러움을 주고 동적인 디자인을 고려해 디자인과 제작을 하였습니다.
+
+                    <p>기획 / 디자인 / 퍼블리싱 100%</p>
+                  </div> <!-- text end -->
+                </div> <!-- cont end -->
+                <div class="button">
+                  <a href="https://yonghun112.github.io/taylorMade/" target="_blank">website</a>
+                  <a href="https://github.com/yongHun112/taylorMade" target="_blank">github</a>
+                  <a href="https://yonghun112.github.io/taylorMade/process/테일러메이드_process.pdf"
+                    target="_blank">process</a>
+                </div> <!-- button end -->
+              </div> <!-- text_box end    -->
+            </div> <!-- project_box end -->
+            <div class="project_box">
+
+              <div class="image">
+                <img src="img/iPhone 16 Pro.png" alt="다이닝코드  목업이미지"></a>
+              </div> <!-- image end -->
+              <div class="text_box">
+                <div class="title">
+                  <h3>다이닝코드</h3>
+                  <p>메인페이지, 상세페이지, 마이페이지</p>
+                </div> <!-- title end -->
+
+                <div class="cont">
+
+                  <p class="use_tool">
+                    <span>#figma</span>
+                  </p> <!-- use_tool  end-->
+
+                  <div class="text">
+                    빅데이터를 활용하여 국내 전국 맛집을 알려주는 다이닝코드 앱 리뉴얼입니다. 메인페이지에 여러 아이콘들과 탭을 추가하며 가독성을 높이고,
+                    포인트컬러를 사용해 전체적으로 깔끔한 느낌을 주는 디자인으로 제작하였습니다.
+                    <p>기획 / 디자인 / 100%</p>
+                  </div> <!-- text end -->
+                </div> <!-- cont end -->
+                <div class="button">
+                  <a href="https://www.figma.com/proto/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=2-9&p=f&t=5uREYHI9QbJhooua-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=252%3A808&show-proto-sidebar=1"
+                    target="_blank">prototype</a>
+                  <a href="https://yonghun112.github.io/portfolio/process/다이닝코드_process.pdf" target="_blank">process</a>
+                  <a href="https://www.figma.com/design/dJgKrdfXVBOUv4mLkqzyIo/%EB%8B%A4%EC%9D%B4%EB%8B%9D%EC%BD%94%EB%93%9C?node-id=0-1&p=f&t=IOvhCDM5chSxoM73-0"
+                    target="_blank">figma</a>
+                </div> <!-- button end -->
+              </div> <!-- text_box end    -->
+            </div> <!-- project_box end -->
+
+          </div> <!-- project_wrap end -->
+        </div> <!-- inner end -->
+      </section> <!-- section project end -->
+
+      <section class="section clone">
+        <div class="inner">
+          <h2 class="title_clone">CLONE</h2>
+
+          <div class="clone_wrap">
+            <div class="clone_box first">
+              <div class="text_box">
+                <div class="text_title">
+                  <h2>Zlgoon</h2>
+                  <span></span>
+                </div> <!-- text_title end -->
+
+                <div class="text_cont">
+                  <p>모바일 쿠폰 제작 즐거운 홈페이지 클론코딩을 통해 <span>애니메이션 효과</span>를 습득 했습니다.</p>
+                </div> <!-- text_cont end -->
+
+                <div class="text_btn">
+                  <a href="https://yonghun112.github.io/zlgoon/" target="_blank">website</a>
+
+                  <ul class="text_info">
+                    <li>HTML,</li>
+                    <li>CSS,</li>
+                    <li>JS,</li>
+                    <li>swiper.js</li>
+                  </ul> <!-- text_info end -->
+                </div> <!-- text_btn end -->
+              </div> <!-- text_box end -->
+
+              <div class="image_box">
+                <img src="img/Zlgoon_mokup.png" alt="즐거운 목업이미지">
+              </div> <!-- image_box end -->
+            </div> <!-- clone_box first end -->
+
+            <div class="clone_box second">
+              <div class="text_box">
+                <div class="text_title">
+                  <h2>Skelter Labs</h2>
+                </div> <!-- text_title end -->
+
+                <div class="text_cont">
+                  <p>AI기반 서비스 스켈터랩스 홈페이지를 클론코딩을 통해 <span>구조화 작업</span>을 이해하고 활용할 수
+                    있습니다.</p>
+                </div> <!-- text_cont end -->
+
+                <div class="text_btn">
+                  <a href="https://yonghun112.github.io/skelterlabs-clone/" target="_blank">website</a>
+
+                  <ul class="text_info">
+                    <li>HTML,</li>
+                    <li>CSS,</li>
+                    <li>JS,</li>
+                    <li>swiper.js</li>
+                  </ul> <!-- text_info end -->
+                </div> <!-- text_btn end -->
+              </div> <!-- text_box end -->
+
+              <div class="image_box">
+                <img src="img/SkelterLabs_mokup.png" alt="스켈터랩스 목업이미지">
+              </div> <!-- image_box end -->
+            </div> <!-- clone_box second end -->
+
+            <div class="clone_box third">
+              <div class="text_box">
+                <div class="text_title">
+                  <h2>Robotori Edu</h2>
+                  <span></span>
+                </div> <!-- text_title end -->
+
+                <div class="text_cont">
+                  <p>교육 프로그램 로보토리에듀 홈페이지 클론코딩을 통해 <span>자바스크립트</span>의 여러 기능을 습득하여 활용할 수 있습니다. </p>
+                </div> <!-- text_cont end -->
+
+                <div class="text_btn">
+                  <a href="https://yonghun112.github.io/robotoriedu/" target="_blank">website</a>
+
+                  <ul class="text_info">
+                    <li>HTML,</li>
+                    <li>CSS,</li>
+                    <li>JS</li>
+                  </ul> <!-- text_info end -->
+                </div> <!-- text_btn end -->
+              </div> <!-- text_box end -->
+
+              <div class="image_box">
+                <img src="img/robotori_edu mokup.png" alt="로보토리에듀 목업이미지">
+              </div> <!-- image_box end -->
+            </div> <!-- clone_box third end -->
+
+            <div class="clone_box fourth">
+              <div class="text_box">
+                <div class="text_title">
+                  <h2>Palette</h2>
+                  <span>반응형</span>
+                </div> <!-- text_title end -->
+
+                <div class="text_cont">
+                  <p>예술과 AI가 만난 팔레트 홈페이지 클론코딩을 통해 <span>gsap</span>과 여러 <span>텍스트 효과</span>를 활용할 수
+                    있습니다.
+                  </p>
+                </div> <!-- text_cont end -->
+
+                <div class="text_btn">
+                  <a href="https://yonghun112.github.io/palette-clone/" target="_blank">website</a>
+
+                  <ul class="text_info">
+                    <li>HTML,</li>
+                    <li>CSS,</li>
+                    <li>JS,</li>
+                    <li>GSAP</li>
+                  </ul> <!-- text_info end -->
+                </div> <!-- text_btn end -->
+              </div> <!-- text_box end -->
+
+              <div class="image_box">
+                <img src="img/palette_mokup.png" alt="팔레트 목업이미지">
+              </div> <!-- image_box end -->
+            </div> <!-- clone_box fourth end -->
+
+          </div> <!-- clone_wrap end -->
+        </div> <!-- inner end -->
+      </section> <!-- clone end -->
+
+      <section class="section design">
+        <div class="inner">
+          <h2 class="title_design">DESIGN</h2> <!-- title_design end -->
+
+          <div class="design_wrap">
+            <div class="design_box">
+              <div class="design_image img1">
+                <img src="img/유리배경-아이스크림.png" alt="유리배경-아이스크림 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img2">
+                <img src="img/플라스틱 다이어트 방법.png" alt="플라스틱 다이어트 방법 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img3">
+                <img src="img/수딩크림.png" alt="수당크림 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img4">
+                <img src="img/신혼부부 최애템.png" alt="신혼부부 최애템 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img5">
+                <img src="img/유럽.png" alt="유럽 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img6">
+                <img src="img/Untitled-2.png" alt="일러스트 이미지">
+              </div> <!-- design_image end -->
+
+              <div class="design_image img7">
+                <img src="img/Untitled-sdss.jpg" alt="일러스트 이미지2">
+              </div> <!-- design_image end -->
+            </div> <!-- design_box end -->
+          </div> <!-- design_wrap end -->
+        </div> <!-- inner end -->
+      </section> <!-- design end -->
+    </div> <!-- main end -->
+
+    <footer class="footer">
+      <div class="inner">
+        <div class="footer_wrap">
+          <div class="contact">
+
+            <a href="process/이용훈_Portfolio.pdf" target="_blank">Portfolio PDF
+              <span><img src="img/download.png" alt="다운로드_아이콘"></span>
+            </a>
+
+            <a href="https://github.com/yongHun112?tab=repositories" target="_blank">Github</a>
+
+            <a href="#">Email
+              <span>dyd3536@naver.com</span>
+            </a>
+
+            <a href="#">Tel
+              <span>010 - 4653 - 7140</span>
+            </a>
+
+          </div> <!-- contact end -->
+
+          <div class="copy">
+            <h2>
+              ⓒLEE<br /> YONGHUN
+            </h2>
+            Copyrightⓒ2025.Yonghun Lee.All rights reserved.
+          </div>
+        </div> <!-- footer_wrap end -->
+      </div> <!-- inner end -->
+    </footer> <!-- footer end -->
+  </div> <!-- wrap end -->.
 </body>
 
 </html>
